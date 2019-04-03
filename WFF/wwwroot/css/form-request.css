@@ -1,0 +1,228 @@
+﻿.form-container {
+    padding-top: 15px;
+    margin-bottom: 100px;
+}
+
+.nav.nav-tabs {
+    margin-top: 20px;
+}
+
+.form-request {
+    padding: 0;
+}
+
+.form-request .row {
+    padding: 10px 0;
+}
+
+.form-request .row.header {
+    padding: 1px 0;
+    background-color: #eee;
+}
+
+.row.form-request-footer {
+    border-top: 1px solid #dddddd;
+    padding: 3px 0 5px;
+    background-color: #eee;
+    text-align: right;
+    margin-top: 5px;
+}
+
+.form-request .row .status,
+.row.form-request-footer .status {
+    float: right;
+    padding-right: 10px;
+}
+
+.form-request .tab-container {
+    padding-top: 10px;
+}
+
+.form-request label {
+    font-weight: normal;
+    color: #333;
+    margin-bottom: 0;
+}
+
+.form-request .tab-container .radiobutton,
+.form-request .tab-container .check-box {
+    display: block;
+    font-weight: normal;
+}
+
+.form-request .tab-container .text-description {
+    font-size: 13px;
+    padding-bottom: 10px;
+}
+
+.form-request .tab-container input[type=textbox] {
+    width: 90%;
+    padding-left: 2px;
+    padding-bottom: 3px;
+}
+
+.form-request .tab-container .date input[type=textbox] {
+    width: 100%;
+}
+
+.form-request .tab-container input[type=number].error,
+.form-request .tab-container input[type=textbox].error {
+    border: 1px solid #d63939;
+    padding: 2px;
+}
+
+.form-request .tab-container label.lbl-error {
+    color: #d63939;
+}
+
+.form-request .tab-container .required-field {
+    float: left;
+    margin-left: -14px;
+    color: #d63939;
+}
+
+.form-request .tab-container .full-row input[type=textbox] {
+    width: 96%
+}
+
+.form-request .tab-container .check-box input[type=checkbox],
+.form-request .tab-container .radiobutton input[type=radio] {
+    margin-right: 5px;
+}
+
+.form-request .tab-container .btn-open-modal {
+    padding-left: 5px;
+    padding-bottom: 2px;
+}
+
+.form-request .tab-container .btn-file:hover,
+.form-request .tab-container .btn-open-file:hover,
+.form-request .tab-container .btn-delete-file:hover,
+.form-request .tab-container .btn-open-modal:hover {
+    cursor: pointer;
+}
+
+.form-request .tab-container .description {
+    color: gray;
+    font-size: 13px;
+}
+
+.form-request input.disabled {
+    color: gray;
+}
+
+.form-request .txt-file {
+    margin-bottom: 10px;
+    width: 76% !important;
+}
+
+.form-request .btn-open-file,
+.form-request .btn-delete-file {
+    padding-left: 10px;
+}
+
+.form-request .btn-open-file {
+    width: 24px;
+}
+
+.form-request .btn-delete-file {
+    padding-top: 1px;
+}
+
+.form-request table.custom-field {
+    margin-bottom: 0;
+    font-size: 12px;
+}
+
+.form-request .clockpicker,
+.form-request .clockpicker-readonly {
+    height: 20px;
+    width: 90%;
+    display: table;
+}
+
+.form-request .clockpicker-readonly input,
+.form-request .clockpicker input {
+    font-size: 13px;
+    height: 24px;
+    border-radius: 0;
+    border: 1px solid darkgrey;
+    padding: 1px 0 1px 2px;
+    width: 100% !important;
+}
+
+.form-request .clockpicker input:read-only,
+.form-request .clockpicker-readonly input:read-only {
+    background-color: white;
+    height: 26px;
+}
+
+.form-request .clockpicker .input-group-addon {
+    height: 24px;
+    padding: 0 15px;
+    border-color: #a9a9a9;
+}
+
+.form-request .clockpicker .glyphicon {
+    margin-right: 0;
+}
+
+.form-request .row.replacing-field {
+    float: right;
+    width: 100%;
+}
+
+.form-request .input-list {
+    padding-bottom: 7px;
+    margin-bottom: 7px;
+    border: none;
+    border-bottom: 1px dashed #b7b7b7;
+    width: 89% !important;
+}
+
+.form-request .input-list.last {
+    margin-bottom: 0;
+    border: none;
+}
+
+.modal-table-container {
+    overflow-y: scroll;
+    height: 300px;
+    padding: 0 5px 0 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    font-size: 13px;
+}
+
+.table-clickable > tbody > tr:hover {
+  background-color: #e2e2e2;
+}
+
+.table-clickable tr.active td {
+  background-color: #92dcf9 !important;
+}
+
+.modal-footer .validation-error {
+    text-align: left;
+    padding-top: 6px;
+    color: #d63939;
+    visibility: hidden;
+}
+
+.form-request .custom-list-field .delete-item {
+    padding: 10px 0;
+}
+
+.form-request .custom-list-field .delete-item img {
+    padding: 0;
+}
+
+.form-request .custom-list-field .add-item {
+    margin-top: -15px;
+    padding-left: 0px;
+}
+
+.form-request .custom-list-field .add-item a:hover {
+    text-decoration: none;
+    font-weight: bold;
+}

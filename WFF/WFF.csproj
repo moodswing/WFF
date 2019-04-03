@@ -1,0 +1,114 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <RuntimeFrameworkVersion>2.2.2</RuntimeFrameworkVersion>
+    <TargetLatestRuntimePatch>true</TargetLatestRuntimePatch>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="log4net" Version="2.0.8" />
+    <PackageReference Include="AutoMapper" Version="8.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.2.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.2" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!--<DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />-->
+    <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.2.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+    <Folder Include="Views\Desktop\" />
+    <Folder Include="Views\FormRequest\" />
+    <Folder Include="Views\FormsBoard\" />
+    <Folder Include="Views\Login\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="Utils\" />
+    <Folder Include="Services\" />
+    <Folder Include="Models\Exceptions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="Views\Desktop\Index.cshtml" />
+    <Content Remove="Views\FormRequest\FormRequest.cshtml" />
+    <Content Remove="Views\FormsBoard\Index.cshtml" />
+    <Content Remove="Views\Login\Index.cshtml" />
+    <Content Remove="global.json" />
+    <Content Remove="log4net.config" />
+    <Content Remove="Views\Shared\Partials\_Footer.cshtml" />
+    <Content Remove="Views\Shared\Partials\_Header.cshtml" />
+    <Content Remove="wwwroot\css\base.css" />
+    <Content Remove="wwwroot\css\bootstrap.css" />
+    <Content Remove="wwwroot\css\bootstrap.min.css" />
+    <Content Remove="wwwroot\css\bootstrap-datepicker.css" />
+    <Content Remove="wwwroot\css\clockpicker.css" />
+    <Content Remove="wwwroot\css\form-request.css" />
+    <Content Remove="wwwroot\js\_references.js" />
+    <Content Remove="wwwroot\js\bootstrap.js" />
+    <Content Remove="wwwroot\js\bootstrap.min.js" />
+    <Content Remove="wwwroot\js\bootstrap-datepicker.min.js" />
+    <Content Remove="wwwroot\js\bootstrap-datepicker-1.6.4-dist.zip" />
+    <Content Remove="wwwroot\js\clockpicker.js" />
+    <Content Remove="wwwroot\js\form-request.js" />
+    <Content Remove="wwwroot\js\jquery.validate.js" />
+    <Content Remove="wwwroot\js\jquery.validate.min.js" />
+    <Content Remove="wwwroot\js\jquery.validate.unobtrusive.js" />
+    <Content Remove="wwwroot\js\jquery.validate.unobtrusive.min.js" />
+    <Content Remove="wwwroot\js\jquery.validate-vsdoc.js" />
+    <Content Remove="wwwroot\js\jquery-1.10.2.js" />
+    <Content Remove="wwwroot\js\jquery-1.10.2.intellisense.js" />
+    <Content Remove="wwwroot\js\jquery-1.10.2.min.js" />
+    <Content Remove="wwwroot\js\jquery-1.10.2.min.map" />
+    <Content Remove="wwwroot\js\jquery-1.10.2-vsdoc.js" />
+    <Content Remove="wwwroot\js\modernizr-2.6.2.js" />
+    <Content Remove="wwwroot\js\respond.js" />
+    <Content Remove="wwwroot\js\respond.min.js" />
+    <Content Remove="wwwroot\fonts\glyphicons-halflings-regular.eot" />
+    <Content Remove="wwwroot\fonts\glyphicons-halflings-regular.svg" />
+    <Content Remove="wwwroot\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Remove="wwwroot\fonts\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Views\Desktop\Index.cshtml" />
+    <None Include="Views\FormRequest\FormRequest.cshtml" />
+    <None Include="Views\FormsBoard\Index.cshtml" />
+    <None Include="Views\Login\Index.cshtml" />
+    <None Include="global.json" />
+    <None Include="log4net.config" />
+    <None Include="Views\Shared\Partials\_Footer.cshtml" />
+    <None Include="Views\Shared\Partials\_Header.cshtml" />
+    <None Include="wwwroot\css\base.css" />
+    <None Include="wwwroot\css\bootstrap.css" />
+    <None Include="wwwroot\css\bootstrap.min.css" />
+    <None Include="wwwroot\css\bootstrap-datepicker.css" />
+    <None Include="wwwroot\css\clockpicker.css" />
+    <None Include="wwwroot\css\form-request.css" />
+    <None Include="wwwroot\js\_references.js" />
+    <None Include="wwwroot\js\bootstrap.js" />
+    <None Include="wwwroot\js\bootstrap.min.js" />
+    <None Include="wwwroot\js\bootstrap-datepicker.min.js" />
+    <None Include="wwwroot\js\bootstrap-datepicker-1.6.4-dist.zip" />
+    <None Include="wwwroot\js\clockpicker.js" />
+    <None Include="wwwroot\js\form-request.js" />
+    <None Include="wwwroot\js\jquery.validate.js" />
+    <None Include="wwwroot\js\jquery.validate.min.js" />
+    <None Include="wwwroot\js\jquery.validate.unobtrusive.js" />
+    <None Include="wwwroot\js\jquery.validate.unobtrusive.min.js" />
+    <None Include="wwwroot\js\jquery.validate-vsdoc.js" />
+    <None Include="wwwroot\js\jquery-1.10.2.js" />
+    <None Include="wwwroot\js\jquery-1.10.2.intellisense.js" />
+    <None Include="wwwroot\js\jquery-1.10.2.min.js" />
+    <None Include="wwwroot\js\jquery-1.10.2.min.map" />
+    <None Include="wwwroot\js\jquery-1.10.2-vsdoc.js" />
+    <None Include="wwwroot\js\modernizr-2.6.2.js" />
+    <None Include="wwwroot\js\respond.js" />
+    <None Include="wwwroot\js\respond.min.js" />
+    <None Include="wwwroot\fonts\glyphicons-halflings-regular.eot" />
+    <None Include="wwwroot\fonts\glyphicons-halflings-regular.svg" />
+    <None Include="wwwroot\fonts\glyphicons-halflings-regular.ttf" />
+    <None Include="wwwroot\fonts\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+</Project>

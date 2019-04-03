@@ -1,0 +1,227 @@
+﻿@model WFF.ViewModels.FormsBoardViewModel
+@using WFF.Utils
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using Newtonsoft.Json.Linq;
+
+<script type="text/javascript">$(document).ready(function() {
+        $('.list-group').on('click', 'li', function(event) {
+            $(this).addClass('active').siblings().removeClass('active');
+        });
+});</script>
+
+<div class="row  padding-top-cuerpo">
+    @if (Model != null && !string.IsNullOrEmpty(Model.DisplayMessage))
+    {
+        <div class="row return-message">
+            <div class="inner-container">
+                @Model.DisplayMessage
+            </div>
+        </div>
+    }
+    <div class="container center-block">
+        <div class="row">
+            <div class="col-sm-3 views">
+                @foreach (var groupView in Model.GroupViews)
+                {
+                    <ul class="list-group list-group-flush">
+                        <div class="group-view-title">@groupView.Title</div>
+                        @if (groupView.Views != null)
+                        {
+                            foreach (var view in groupView.Views)
+                            {
+                                <li class="list-group-item"><a href='@Url.Action("View", "FormsBoard", new { idForm = Model.IdForm, idView = view.Id })'>@view.Title</a></li>
+                            }
+                        }
+                    </ul>
+                }
+            </div>
+            <div class="col-sm-9">
+                @if (Model.CurrentView != null)
+                {
+                    <div class="panel-group request-board" id="formsResults">
+                        @if (!Model.JSonResult.Properties().Any())
+                        {
+                            <div class="no-requests">No requests found ...</div>
+                        }
+                        @if (Model.TypeOfView == "DateList")
+                        {
+                            for (var i = 0; i < Model.JSonResult.Properties().Count(); i++)
+                            {
+                                var property = Model.JSonResult.Properties().ElementAt(i);
+                                var totalByYear = 0;
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" id="heading@(i)">
+                                        <button class="btn btn-link" type="button" data-toggle="collapse" href="#collapse@(i)">
+                                            @property.Name
+                                        </button>
+                                    </div>
+                                    <div id="collapse@(i)" class="panel-collapse collapse in date-list">
+                                        <div class="panel-body">
+                                            @*@helper ParseFunc(string func, JToken json)
+                                                {
+                                                var validate = func.Split('?')[0];
+                                                var optionsResult = func.Split('?')[1].Split(':');
+
+                                                var isEqual = validate.Contains("==");
+                                                string[] equalities = { "==", "!=" };
+                                                var constants = validate.Split(equalities, StringSplitOptions.None);
+
+                                                var value1 = constants[0].Trim().Trim('\"');
+                                                var value2 = constants[1].Trim().Trim('\"');
+
+                                                if (json[constants[0].Trim()] != null)
+                                                {
+                                                value1 = json[value1].ToString().Trim('\"');
+                                                }
+
+                                                if (json[constants[1].Trim()] != null)
+                                                {
+                                                value2 = json[value2].ToString().Trim('\"');
+                                                }
+
+                                                var comparisonResult = isEqual ? value1.Equals(value2) : !value1.Equals(value2);
+
+
+                                                var result = comparisonResult ? optionsResult[0].Trim() : optionsResult[1].Trim();
+
+                                                string[] whiteSpaces = { "+ \" \" +" };
+                                                var resultSplit = result.Split(whiteSpaces, StringSplitOptions.None);
+
+                                                var funcResult = "";
+                                                foreach (var item5 in resultSplit)
+                                                {
+                                                funcResult += json[item5.Trim()].ToString() + " ";
+                                                }
+
+                                                @(funcResult)
+                                                }*@
+                                            @foreach (var item in property.Value.ToList())
+                                            {
+                                                foreach (JProperty item2 in item.ToList())
+                                                {
+                                                    totalByYear++;
+                                                    <div class="panel-group request-board" id="formsResults">
+                                                        <div class="panel-heading" id="heading@(i.ToString() + item2.Name))">
+                                                            <button class="btn btn-link" type="button" data-toggle="collapse" href="#collapse@(i.ToString() + item2.Name)">
+                                                                @item2.Name
+                                                            </button>
+                                                            <span>
+                                                                (@item2.Value.Count().ToString())
+                                                            </span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div id="collapse@(i.ToString() + item2.Name)" class="panel-collapse collapse in">
+                                                        <div class="panel-body">
+                                                            <table class="table table-hover table-clickable">
+                                                                <thead>
+                                                                    <tr>
+                                                                        @foreach (var column in Model.CurrentView.ViewColumns)
+                                                                        {
+                                                                            <th scope="col">
+                                                                                @column.Name
+                                                                            </th>
+                                                                        }
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    @foreach (var item3 in item2)
+                                                                    {
+                                                                        foreach (var item4 in item3)
+                                                                        {
+                                                                            <tr>
+                                                                                @foreach (var column in Model.CurrentView.ViewColumns)
+                                                                                {
+                                                                                    <td>
+                                                                                        <a name="openRequestForm" href='@Url.Action("EditRequest", "FormRequest", new { idRequest = item4["IdFormRequest"].ToString() })'>
+                                                                                            @if (column.FunctionControlId == null)
+                                                                                            {
+                                                                                                @(item4[column.ControlId] == null ? string.Empty : item4[column.ControlId].ToString())
+                                                                                            }
+                                                                                            else
+                                                                                            {
+                                                                                                @Html.ParseFunc(column.FunctionControlId, item4)
+                                                                                            }
+                                                                                        </a>
+                                                                                    </td>
+                                                                                }
+                                                                            </tr>
+                                                                        }
+                                                                    }
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                }
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
+                        else if (Model.TypeOfView == "List")
+                        {
+                            for (var i = 0; i < Model.JSonResult.Properties().Count(); i++)
+                            {
+                                var property = Model.JSonResult.Properties().ElementAt(i);
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" id="heading@(i)">
+                                        <button class="btn btn-link" type="button" data-toggle="collapse" href="#collapse@(i)">
+                                            @property.Name.Trim('[').Trim(']')
+                                        </button>
+                                        <span>
+                                            (@property.Value.Count().ToString())
+                                        </span>
+                                    </div>
+                                    <div id="collapse@(i)" class="panel-collapse collapse in">
+                                        <div class="panel-body">
+                                            <table class="table table-hover table-clickable">
+                                                <thead>
+                                                    <tr>
+                                                        @foreach (var column in Model.CurrentView.ViewColumns)
+                                                        {
+                                                            <th scope="col">
+                                                                @column.Name
+                                                            </th>
+                                                        }
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach (var item in property.Value)
+                                                    {
+                                                        <tr>
+                                                            @foreach (var column in Model.CurrentView.ViewColumns)
+                                                            {
+                                                                <td>
+                                                                    <a name="openRequestForm" href='@Url.Action("EditRequest", "FormRequest", new { idRequest = item["IdFormRequest"].ToString() })'>
+                                                                        @if (column.FunctionControlId == null)
+                                                                        {
+                                                                            @(item[column.ControlId] == null ? "" : item[column.ControlId].ToString())
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            @Html.ParseFunc(column.FunctionControlId, item)
+                                                                        }
+                                                                    </a>
+                                                                </td>
+                                                            }
+                                                        </tr>
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

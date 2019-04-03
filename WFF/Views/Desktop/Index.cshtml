@@ -1,0 +1,33 @@
+﻿@model WFF.ViewModels.DesktopViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row  padding-top-cuerpo">
+    @if (Model != null && !string.IsNullOrEmpty(Model.DisplayMessage))
+    {
+        <div class="row return-message">
+            <div class="inner-container">
+                @Model.DisplayMessage
+            </div>
+        </div>
+    }
+    <div class="container center-block">
+        <div class="row">
+            <div class="card-deck">
+                @foreach (var form in Model.FilterByForms)
+                {
+                    <div class="card">
+                        <a class="card-title" name="createNewForm" href='@Url.Action("Index", "FormsBoard", new { idForm = @form.Key })'>
+                            <img class="card-img-top" src="~/images/desktopform.png" alt="Card image cap">
+                            <div class="card-body">
+                                @form.Value
+                            </div>
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

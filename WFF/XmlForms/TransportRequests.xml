@@ -1,0 +1,1226 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<body>
+  <title>Transport Requests</title>
+  <headerTitle>Transport Request</headerTitle>
+  <idForm>3</idForm>
+  <initialInput>
+    <status></status>
+    <statusId></statusId>
+    <formRequestId></formRequestId>
+    <createdBy></createdBy>
+    <createdByEmail></createdByEmail>
+    <createdDate></createdDate>
+    <currentUser></currentUser>
+    <currentUserEmail></currentUserEmail>
+    <userAssigned></userAssigned>
+  </initialInput>
+  <pages>
+    <page>
+      <id>1</id>
+      <label>Request Details</label>
+    </page>
+    <page>
+      <id>History</id>
+      <label>History</label>
+    </page>
+  </pages>
+  <fields>
+    <field>
+      <controlId>Office</controlId>
+      <label>Office</label>
+      <type>modalTable</type>
+      <dataSource>Office</dataSource>
+      <page>1</page>
+      <columnSize>half</columnSize>
+    </field>
+    <field>
+      <controlId>Priority</controlId>
+      <label>Priority</label>
+      <type>radiobutton</type>
+      <dataSource>Priority</dataSource>
+      <page>1</page>
+      <columnSize>half</columnSize>
+    </field>
+    <field>
+      <controlId>Supervisor</controlId>
+      <label>Supervisor</label>
+      <type>selectUser</type>
+      <page>1</page>
+      <columnSize>half</columnSize>
+    </field>
+    <field>
+      <controlId>ContactPerson</controlId>
+      <label>Contact Person</label>
+      <type>textbox</type>
+      <page>1</page>
+      <columnSize>half</columnSize>
+    </field>
+    <field>
+      <controlId>ProposedDate</controlId>
+      <label>Proposed Date</label>
+      <type>date</type>
+      <page>1</page>
+      <columnSize>half</columnSize>
+    </field>
+    <field>
+      <controlId>ContactPhoneNumber</controlId>
+      <label>Contact Phone Number</label>
+      <type>textbox</type>
+      <page>1</page>
+      <columnSize>half</columnSize>
+    </field>
+    <field>
+      <controlId>ProposedStartTime</controlId>
+      <label>Proposed Start Time</label>
+      <type>time</type>
+      <page>1</page>
+      <columnSize>half</columnSize>
+    </field>
+    <field>
+      <controlId>TypeOfTransport</controlId>
+      <label>Type of Transport</label>
+      <type>radiobutton</type>
+      <dataSource>TypeOfTransport</dataSource>
+      <page>1</page>
+      <columnSize>half</columnSize>
+    </field>
+    <field>
+      <controlId>Empty</controlId>
+      <page>1</page>
+      <columnSize>half</columnSize>
+    </field>
+    <field>
+      <controlId>TypeOfGoods</controlId>
+      <label>Please select the type of goods</label>
+      <type>radiobutton</type>
+      <dataSource>TypeOfGoods</dataSource>
+      <page>1</page>
+      <columnSize>half</columnSize>
+      <visible>false</visible>
+    </field>
+    <field>
+      <controlId>Empty</controlId>
+      <page>1</page>
+      <columnSize>half</columnSize>
+    </field>
+    <field>
+      <controlId>PackageTypeBooks</controlId>
+      <label>Package Type</label>
+      <type>radiobutton</type>
+      <dataSource>PackageTypeBooks</dataSource>
+      <page>1</page>
+      <columnSize>half</columnSize>
+      <visible>false</visible>
+    </field>
+    <field>
+      <controlId>Empty</controlId>
+      <page>1</page>
+      <columnSize>half</columnSize>
+    </field>
+    <field>
+      <controlId>PackageTypeCorrespondence</controlId>
+      <label>Package Type</label>
+      <type>checkbox</type>
+      <dataSource>PackageTypeCorrespondence</dataSource>
+      <page>1</page>
+      <columnSize>half</columnSize>
+      <visible>false</visible>
+    </field>
+    <field>
+      <controlId>Empty</controlId>
+      <page>1</page>
+      <columnSize>half</columnSize>
+    </field>
+    <field>
+      <controlId>PackageTypeCorrespondenceSpecify</controlId>
+      <label>Specify</label>
+      <type>radiobutton</type>
+      <dataSource>PackageTypeCorrespondenceSpecify</dataSource>
+      <page>1</page>
+      <columnSize>half</columnSize>
+      <visible>false</visible>
+    </field>
+    <field>
+      <controlId>Empty</controlId>
+      <page>1</page>
+      <columnSize>half</columnSize>
+    </field>
+    <field>
+      <controlId>PackageTypeDocuments</controlId>
+      <label>Package Type</label>
+      <type>checkbox</type>
+      <dataSource>PackageTypeDocuments</dataSource>
+      <page>1</page>
+      <columnSize>half</columnSize>
+      <visible>false</visible>
+    </field>
+    <field>
+      <controlId>ProposedEndTime</controlId>
+      <label>Proposed End Time</label>
+      <type>time</type>
+      <page>1</page>
+      <columnSize>half</columnSize>
+    </field>
+    <field>
+      <controlId>NumberOfItems</controlId>
+      <label>Number of Items</label>
+      <type>textbox</type>
+      <page>1</page>
+      <columnSize>half</columnSize>
+      <visible>false</visible>
+    </field>
+    <field>
+      <controlId>Empty</controlId>
+      <page>1</page>
+      <columnSize>half</columnSize>
+    </field>
+    <field>
+      <controlId>NumberOfPassengers</controlId>
+      <label>Number of Passengers</label>
+      <type>textbox</type>
+      <page>1</page>
+      <columnSize>half</columnSize>
+      <visible>false</visible>
+      <replacingField>true</replacingField>
+    </field>
+    <field>
+      <controlId>Empty</controlId>
+      <page>1</page>
+      <columnSize>half</columnSize>
+    </field>
+    <field>
+      <controlId>PassengerNames</controlId>
+      <label>Passenger Name(s)</label>
+      <type>textbox</type>
+      <page>1</page>
+      <columnSize>half</columnSize>
+      <visible>false</visible>
+    </field>
+    <field>
+      <controlId>Attachments</controlId>
+      <label>Attachments</label>
+      <type>files</type>
+      <page>1</page>
+      <columnSize>half</columnSize>
+    </field>
+    <field>
+      <controlId>DetailedDescription</controlId>
+      <label>Detailed Description</label>
+      <type>textbox</type>
+      <page>1</page>
+      <columnSize>half</columnSize>
+      <description>(Include weight and/or size)</description>
+      <visible>false</visible>
+    </field>
+    <field>
+      <controlId>Empty</controlId>
+      <page>1</page>
+      <columnSize>half</columnSize>
+    </field>
+    <field>
+      <controlId>PassengerCategory</controlId>
+      <label>Passenger Category</label>
+      <type>radiobutton</type>
+      <dataSource>PassengerCategory</dataSource>
+      <page>1</page>
+      <columnSize>half</columnSize>
+      <visible>false</visible>
+      <replacingField>true</replacingField>
+    </field>
+    <field>
+      <controlId>Empty</controlId>
+      <page>1</page>
+      <columnSize>half</columnSize>
+    </field>
+    <field>
+      <controlId>ReturnTripRequired</controlId>
+      <label>Return Trip Required ?</label>
+      <type>radiobutton</type>
+      <dataSource>YesNo</dataSource>
+      <page>1</page>
+      <columnSize>half</columnSize>
+      <visible>false</visible>
+    </field>
+    <field>
+      <controlId>DestinationAddress</controlId>
+      <label>Destination Address</label>
+      <type>textbox</type>
+      <page>1</page>
+      <columnSize>full</columnSize>
+    </field>
+    <field>
+      <controlId>RequestDescription</controlId>
+      <label>Request Description</label>
+      <type>textbox</type>
+      <page>1</page>
+      <columnSize>full</columnSize>
+    </field>
+    <field>
+      <controlId>TransportCoordinator</controlId>
+      <label>Transport Coordinator</label>
+      <type>label</type>
+      <page>1</page>
+      <columnSize>half</columnSize>
+      <alternativeValue>true</alternativeValue>
+      <alternativeSuffix>Email</alternativeSuffix>
+    </field>
+    <field>
+      <controlId>Comments</controlId>
+      <label>Comments</label>
+      <type>list</type>
+      <page>1</page>
+      <columnSize>half</columnSize>
+    </field>
+    <field>
+      <controlId>Driver</controlId>
+      <label>Driver</label>
+      <type>rolesModalTable</type>
+      <dataSource>Drivers</dataSource>
+      <page>1</page>
+      <columnSize>half</columnSize>
+    </field>
+    <field>
+      <controlId>ActualStartTime</controlId>
+      <label>Actual Start Time</label>
+      <type>time</type>
+      <page>1</page>
+      <columnSize>half</columnSize>
+    </field>
+    <field>
+      <controlId>Vehicle</controlId>
+      <label>Vehicle</label>
+      <type>modalTable</type>
+      <dataSource>Vehicles</dataSource>
+      <page>1</page>
+      <columnSize>half</columnSize>
+    </field>
+    <field>
+      <controlId>ActualEndTime</controlId>
+      <label>Actual End Time</label>
+      <type>time</type>
+      <page>1</page>
+      <columnSize>half</columnSize>
+    </field>
+    <field>
+      <controlId>Instructions</controlId>
+      <label>Instructions</label>
+      <type>textbox</type>
+      <page>1</page>
+      <columnSize>half</columnSize>
+    </field>
+    <field>
+      <controlId>CompletionRemarks</controlId>
+      <label>Completion Remarks</label>
+      <type>textbox</type>
+      <page>1</page>
+      <columnSize>half</columnSize>
+    </field>
+    <field>
+      <controlId>Empty</controlId>
+      <page>1</page>
+      <columnSize>half</columnSize>
+    </field>
+    <field>
+      <controlId>TotalGoodsWeight</controlId>
+      <label>Total Weight of Goods</label>
+      <type>textbox</type>
+      <page>1</page>
+      <columnSize>half</columnSize>
+    </field>
+  </fields>
+  <parameters>
+    <parameter>
+      <id>Office</id>
+      <type>table</type>
+      <title>Office List</title>
+      <subtitle>Please select an office</subtitle>
+      <columns>
+        <column saveValue="true">
+          Name
+        </column>
+        <column>
+          Acronym
+        </column>
+      </columns>
+      <values>
+        <value>
+          <col>Bogota Office</col>
+          <col>Bogota</col>
+        </value>
+        <value>
+          <col>Brasilia Office</col>
+          <col>Brasilia Office</col>
+        </value>
+        <value>
+          <col>Buenos Aires Office</col>
+          <col>Buenos Aires Office</col>
+        </value>
+        <value>
+          <col>Buildings Management &amp; Maintenance Unit</col>
+          <col>GSS/BMU</col>
+        </value>
+        <value>
+          <col>Clinic</col>
+          <col>Clinic</col>
+        </value>
+        <value>
+          <col>Communications Unit</col>
+          <col>ICTS/Comms</col>
+        </value>
+        <value>
+          <col>Conference Services Unit</col>
+          <col>CSU</col>
+        </value>
+        <value>
+          <col>Contract Management Unit</col>
+          <col>CMU</col>
+        </value>
+        <value>
+          <col>Deputy Executive Secretary</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Distribution Unit</col>
+          <col>DU</col>
+        </value>
+        <value>
+          <col>Division for Gender Affairs</col>
+          <col>DGA</col>
+        </value>
+        <value>
+          <col>Division of Production, Productivity and Management</col>
+          <col>DPPM</col>
+        </value>
+        <value>
+          <col>Economic Development Division</col>
+          <col>DE</col>
+        </value>
+        <value>
+          <col>Financial Services Section</col>
+          <col>FSS</col>
+        </value>
+        <value>
+          <col>General Services Section</col>
+          <col>GSS</col>
+        </value>
+        <value>
+          <col>Human Resources Section</col>
+          <col>HRS</col>
+        </value>
+        <value>
+          <col>Human Resources Section</col>
+          <col>HRS</col>
+        </value>
+        <value>
+          <col>Human Rights Unit</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Information Communications Technologies Section</col>
+          <col>STIC</col>
+        </value>
+        <value>
+          <col>Information Communications Technologies Section</col>
+          <col>STIC</col>
+        </value>
+        <value>
+          <col>Information Services Unit</col>
+          <col></col>
+        </value>
+        <value>
+          <col>International Trade and Integration Division</col>
+          <col>DCII</col>
+        </value>
+        <value>
+          <col>International Trade Unit</col>
+          <col>ITU</col>
+        </value>
+        <value>
+          <col>Latin American and Caribbean Institute for Economic and Social Planning</col>
+          <col>ILPES</col>
+        </value>
+        <value>
+          <col>Library</col>
+          <col>Hernán Santa Cruz Library</col>
+        </value>
+        <value>
+          <col>Maintenance</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Montevideo Office</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Natural Resources and Infrastructure Division</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Office of the Executive Secretary</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Office of the Ombudsman - Santiago</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Office of the Secretary of the Commission</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Population Division - CELADE</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Programme Planning and Operations Division</col>
+          <col>DPPO</col>
+        </value>
+        <value>
+          <col>Purchase Unit</col>
+          <col>GSS/PU</col>
+        </value>
+        <value>
+          <col>Registry and Archives</col>
+          <col>GSS/RA</col>
+        </value>
+        <value>
+          <col>Safety and Security Services, Santiago</col>
+          <col>SSS</col>
+        </value>
+        <value>
+          <col>Social Development Division</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Staff Council</col>
+          <col>Staff Council</col>
+        </value>
+        <value>
+          <col>Statistics and Economic Projections Division</col>
+          <col>DEPE</col>
+        </value>
+        <value>
+          <col>Subregional Headquarters for the Caribbean - Port of Spain</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Subregional Office in Mexico</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Sustainable Development and Human Settlements Division</col>
+          <col>DDSAH</col>
+        </value>
+        <value>
+          <col>Travel, Traffic and Local Transportation Unit</col>
+          <col>GSS/TTTU</col>
+        </value>
+        <value>
+          <col>Washington Office</col>
+          <col>Washington Office</col>
+        </value>
+      </values>
+    </parameter>
+    <parameter>
+      <id>Priority</id>
+      <options>
+        <option>
+          <value>High</value>
+          <description>High</description>
+        </option>
+        <option>
+          <value>Low</value>
+          <description>Low</description>
+        </option>
+        <option>
+          <value>Normal</value>
+          <description>Normal</description>
+        </option>
+      </options>
+    </parameter>
+    <parameter>
+      <id>TypeOfTransport</id>
+      <options>
+        <option>
+          <value>Goods</value>
+          <removeControl>PassengerNames,ReturnTripRequired,NumberOfPassengers,PassengerCategory,PackageTypeCorrespondence,PackageTypeCorrespondenceSpecify,PackageTypeDocuments,PackageTypeBooks</removeControl>
+          <description>Goods</description>
+        </option>
+        <option>
+          <value>Passenger</value>
+          <removeControl>TypeOfGoods,NumberOfItems,DetailedDescription,PackageTypeCorrespondence,PackageTypeCorrespondenceSpecify,PackageTypeDocuments,PackageTypeBooks,TotalGoodsWeight</removeControl>
+          <description>Passenger</description>
+        </option>
+      </options>
+    </parameter>
+    <parameter>
+      <id>TypeOfGoods</id>
+      <options>
+        <option>
+          <value>Books</value>
+          <description>Books</description>
+          <removeControl>PackageTypeCorrespondence,PackageTypeCorrespondenceSpecify,PackageTypeDocuments</removeControl>
+        </option>
+        <option>
+          <value>Correspondence</value>
+          <description>Correspondence</description>
+          <removeControl>PackageTypeBooks,PackageTypeDocuments</removeControl>
+        </option>
+        <option>
+          <value>Documents</value>
+          <description>Documents</description>
+          <removeControl>PackageTypeCorrespondence,PackageTypeCorrespondenceSpecify,PackageTypeBooks</removeControl>
+        </option>
+        <option>
+          <value>Other</value>
+          <description>Other</description>
+          <default>true</default>
+          <removeControl>PackageTypeCorrespondence,PackageTypeCorrespondenceSpecify,PackageTypeDocuments,PackageTypeBooks</removeControl>
+        </option>
+      </options>
+    </parameter>
+    <parameter>
+      <id>PassengerCategory</id>
+      <options>
+        <option>
+          <value>VIP</value>
+          <description>VIP</description>
+        </option>
+        <option>
+          <value>Foreign Delegations</value>
+          <description>Foreign Delegations</description>
+        </option>
+        <option>
+          <value>Senior Chiefs</value>
+          <description>Senior Chiefs</description>
+        </option>
+        <option>
+          <value>ASDASD Staff Members</value>
+          <description>ASDSD Staff Members</description>
+        </option>
+      </options>
+    </parameter>
+    <parameter>
+      <id>YesNo</id>
+      <options>
+        <option>
+          <value>Yes</value>
+          <description>Yes</description>
+        </option>
+        <option>
+          <value>No</value>
+          <description>No</description>
+          <default>true</default>
+        </option>
+      </options>
+    </parameter>
+    <parameter>
+      <id>PackageTypeBooks</id>
+      <options>
+        <option>
+          <value>Books</value>
+          <description>Books</description>
+        </option>
+        <option>
+          <value>Boxes</value>
+          <description>Boxes</description>
+        </option>
+      </options>
+    </parameter>
+    <parameter>
+      <id>PackageTypeCorrespondence</id>
+      <options>
+        <option>
+          <value>Bags</value>
+          <description>Bags</description>
+        </option>
+        <option>
+          <value>Envelopes</value>
+          <description>Envelopes</description>
+          <default>true</default>
+        </option>
+      </options>
+    </parameter>
+    <parameter>
+      <id>PackageTypeCorrespondenceSpecify</id>
+      <options>
+        <option>
+          <value>Diplomatic Pouch</value>
+          <description>Diplomatic Pouch</description>
+        </option>
+        <option>
+          <value>Other</value>
+          <description>Other</description>
+        </option>
+      </options>
+    </parameter>
+    <parameter>
+      <id>PackageTypeDocuments</id>
+      <options>
+        <option>
+          <value>Liberation</value>
+          <description>Liberation</description>
+        </option>
+        <option>
+          <value>Other</value>
+          <description>Other</description>
+        </option>
+        <option>
+          <value>Passport</value>
+          <description>Passport</description>
+        </option>
+        <option>
+          <value>Visa</value>
+          <description>Visa</description>
+        </option>
+      </options>
+    </parameter>
+    <parameter>
+      <id>Vehicles</id>
+      <type>table</type>
+      <title>Vehicles List</title>
+      <columns>
+        <column saveValue="true">
+          Vehicle
+        </column>
+      </columns>
+      <values>
+        <value>
+          <col>Automobile - VOLVO S80 (Grey): OI-0186</col>
+        </value>
+        <value>
+          <col>Automobile - VOLVO S80 (Blue): OI-0101</col>
+        </value>
+        <value>
+          <col>Automobile - NISSAN SENTRA (White): OI-0104</col>
+        </value>
+        <value>
+          <col>Minibus - VOLKSWAGEN TRANSPORTER (Blue): OI-0123</col>
+        </value>
+        <value>
+          <col>Minibus - HYUNDAI H-1 (Blue): OI-0109 </col>
+        </value>
+        <value>
+          <col>Pick-Up - NISSAN (White): OI-0105</col>
+        </value>
+        <value>
+          <col>Pick-Up - NISSAN (White): OI-0234 </col>
+        </value>
+      </values>
+    </parameter>
+  </parameters>
+  <statuses>
+    <status>
+      <name>COMPLETED</name>
+      <displayName>Completed</displayName>
+      <userAssigned>field(Driver)</userAssigned>
+      <order>4</order>
+    </status>
+    <status>
+      <name>ASSIGNED</name>
+      <displayName>Assigned</displayName>
+      <userAssigned>field(Driver)</userAssigned>
+      <editableFields>ActualStartTime,ActualEndTime,CompletionRemarks,TotalGoodsWeight</editableFields>
+      <order>3</order>
+      <actions>
+        <action>
+          <name>ADD_COMMENTS</name>
+          <displayName>Add Comments</displayName>
+          <targetStatus>ASSIGNED</targetStatus>
+          <confirmationText>Add Comments ?</confirmationText>
+          <commentRequired>true</commentRequired>
+          <addCommentToList>Comments</addCommentToList>
+        </action>
+        <action>
+          <name>MARK_COMPLETE</name>
+          <displayName>Mark Complete</displayName>
+          <targetStatus>COMPLETED</targetStatus>
+          <sendEmailNotification>MAIL_ON_COMPLETION</sendEmailNotification>
+          <confirmationText>Complete request ?</confirmationText>
+          <historyText>Request has been completed.</historyText>
+          <requiredFields>ActualStartTime,ActualEndTime</requiredFields>
+        </action>
+      </actions>
+    </status>
+    <status>
+      <name>AWAITING_ASSIGNMENT</name>
+      <displayName>Awaiting Assignment</displayName>
+      <userAssigned>field(TransportCoordinator)</userAssigned>
+      <editableFields>DestinationAddress,RequestDescription,ProposedDate,ProposedStartTime,ProposedEndTime,DetailedDescription,PassengerCategory,NumberOfPassengers,PassengerNames,PackageTypeCorrespondenceSpecify,PackageTypeCorrespondence,NumberOfItems,PackageTypeBooks,PackageTypeDocuments,Priority,TypeOfTransport,TypeOfGoods,ContactPerson,ContactPhoneNumber,ReturnTripRequired,Driver,Vehicle,Instructions,Attachments</editableFields>
+      <hiddenFields>Comments,ActualStartTime,ActualEndTime,CompletionRemarks,TotalGoodsWeight</hiddenFields>
+      <order>2</order>
+      <actions>
+        <action>
+          <name>ASSIGN</name>
+          <displayName>Assign to Driver</displayName>
+          <targetStatus>ASSIGNED</targetStatus>
+          <sendEmailNotification>MAIL_TO_DRIVER_ON_ASSIGNMENT,MAIL_TO_REQUESTOR_ON_ASSIGNMENT</sendEmailNotification>
+          <confirmationText>Assign to driver (field(Driver)) ?</confirmationText>
+          <historyText>Assigned to driver (field(Driver))</historyText>
+          <commentRequired>false</commentRequired>
+          <requiredFields>Driver,Vehicle</requiredFields>
+        </action>
+        <action>
+          <name>SEND_BACK_TO_CREATOR_FOR_REVISION</name>
+          <displayName>Send Back to Creator for Revision</displayName>
+          <targetStatus>NEW</targetStatus>
+          <sendEmailNotification>MAIL_TO_REQUESTOR_FOR_REVISION</sendEmailNotification>
+          <confirmationText>Send back to creator  (field(createdBy)) for revision ?</confirmationText>
+          <historyText>Sent back to the requestor for revision.</historyText>
+          <commentRequired>true</commentRequired>
+        </action>
+      </actions>
+    </status>
+    <status>
+      <name>SUBMITTED</name>
+      <displayName>Submitted</displayName>
+      <userAssigned>role(Coordinators)</userAssigned>
+      <editableFields>TransportCoordinator</editableFields>
+      <hiddenFields>Driver,Vehicle,Instructions,Comments,ActualStartTime,ActualEndTime,CompletionRemarks,TotalGoodsWeight</hiddenFields>
+      <order>1</order>
+      <actions>
+        <action>
+          <name>CHECK_OUT_FROM_INBOX</name>
+          <displayName>Check-out from Inbox</displayName>
+          <targetStatus>AWAITING_ASSIGNMENT</targetStatus>
+          <confirmationText>Check-out from Inbox ?</confirmationText>
+          <historyText>Request checked-out for processing by transport coordinator (User())</historyText>
+          <commentRequired>false</commentRequired>
+          <jsFunction>setFieldValues([{ "target": "TransportCoordinator", "dataField": "currentUser" }, { "target": "TransportCoordinatorEmail", "dataField": "currentUserEmail" }])</jsFunction>
+        </action>
+      </actions>
+    </status>
+    <status>
+      <name>NEW</name>
+      <displayName>New</displayName>
+      <userAssigned>field(createdBy)</userAssigned>
+      <editableFields>Supervisor,Office,DestinationAddress,RequestDescription,ProposedDate,ProposedStartTime,ProposedEndTime,DetailedDescription,PassengerCategory,NumberOfPassengers,PassengerNames,PackageTypeCorrespondenceSpecify,PackageTypeCorrespondence,NumberOfItems,PackageTypeBooks,PackageTypeDocuments,Priority,TypeOfTransport,TypeOfGoods,ContactPerson,ContactPhoneNumber,ReturnTripRequired,Attachments</editableFields>
+      <requiredFields>Office,DestinationAddress,RequestDescription,DetailedDescription,PassengerCategory,NumberOfPassengers,NumberOfItems,Priority,TypeOfTransport,TypeOfGoods,ContactPerson,ContactPhoneNumber,ReturnTripRequired</requiredFields>
+      <hiddenFields>TransportCoordinator,Driver,Vehicle,Instructions,Comments,ActualStartTime,ActualEndTime,CompletionRemarks,TotalGoodsWeight</hiddenFields>
+      <order>0</order>
+      <actions>
+        <action>
+          <name>SUBMIT</name>
+          <displayName>Submit</displayName>
+          <targetStatus>SUBMITTED</targetStatus>
+          <sendEmailNotification>MAIL_ON_SUBMIT</sendEmailNotification>
+          <confirmationText>Submit transport request ?</confirmationText>
+          <historyText>Request submitted by User()</historyText>
+          <commentRequired>false</commentRequired>
+        </action>
+      </actions>
+    </status>
+  </statuses>
+  <roles>
+    <role>
+      <id>Coordinators</id>
+      <name>Transport Coordinator</name>
+      <users>
+        <user>
+          <name>Francisco Javier Campos</name>
+          <email>francisco.campos@un.org</email>
+        </user>
+      </users>
+    </role>
+    <role>
+      <id>Drivers</id>
+      <name>Drivers</name>
+      <usedForModalTable>true</usedForModalTable>
+      <title>Keywords</title>
+      <users>
+        <user>
+          <name>Víctor Vergara</name>
+          <email>victor.vergara@un.org</email>
+        </user>
+        <user>
+          <name>Robinson Aravena</name>
+          <email>robinson.aravena@asdasd.org</email>
+        </user>
+        <user>
+          <name>Francisco Javier Campos</name>
+          <email>francisco.campos@un.org</email>
+        </user>
+      </users>
+    </role>
+    <role>
+      <id>OtherViewusers</id>
+      <name>Other View Users</name>
+      <users>
+        <user>
+          <name>Robinson Aravena</name>
+          <email>robinson.aravena@asdasd.org</email>
+        </user>
+      </users>
+    </role>
+  </roles>
+  <emailNotificationTemplates>
+    <emailNotificationTemplate>
+      <templateId>MAIL_ON_COMPLETION</templateId>
+      <recipient>field(TransportCoordinatorEmail),field(createdByEmail)</recipient>
+      <subject>Transport Request: Completed</subject>
+      <body>
+        <![CDATA[
+        Please note that I have completed the following transport request.
+
+        Requested by : field(createdBy)
+        Date         : DateTime()
+        Start Time   : field(ActualStartTime)
+        End Time     : field(ActualEndTime)
+        Description  : field(RequestDescription)
+
+        Link  : Link()
+
+        Regards,
+
+        User().
+        ]]>
+      </body>
+    </emailNotificationTemplate>
+    <emailNotificationTemplate>
+      <templateId>MAIL_TO_REQUESTOR_FOR_REVISION</templateId>
+      <recipient>field(createdByEmail)</recipient>
+      <subject>Transport Request: Revision Required</subject>
+      <body>
+        <![CDATA[
+          Dear field(createdBy),
+
+          This request for transport has been sent back to you for revision. 
+
+          Remarks   : Comments()
+          Requestor : field(createdBy)
+          Date      : DateTime()
+          Time      : field(ProposedStartTime)
+          Link      : Link()
+
+
+          Regards,
+
+          User()
+        ]]>
+      </body>
+    </emailNotificationTemplate>
+    <emailNotificationTemplate>
+      <templateId>MAIL_TO_DRIVER_ON_ASSIGNMENT</templateId>
+      <recipient>emailField(Driver)</recipient>
+      <subject>Transport Request: Assignment</subject>
+      <body>
+        <![CDATA[
+          Dear field(Driver)
+
+          Please note that the following transport request has been assigned to you.
+
+          Requestor      : field(createdBy)
+          Contact Person : field(ContactPerson)
+          Date           : DateTime()
+          Time           : field(ProposedStartTime)
+
+          Link  : Link()
+
+          Regards,
+
+          User().
+        ]]>
+      </body>
+    </emailNotificationTemplate>
+    <emailNotificationTemplate>
+      <templateId>MAIL_TO_REQUESTOR_ON_ASSIGNMENT</templateId>
+      <recipient>emailRole(Coordinators)</recipient>
+      <subject>Transport Request: Assigned</subject>
+      <body>
+        <![CDATA[
+          Please note that the following transport request has been assigned to the driver indicated.
+
+          Requestor : field(createdBy)
+          Date      : DateTime()
+          Time      : field(ProposedStartTime)
+          Driver    : field(Driver)
+
+          Link   : Link()
+
+          Regards,
+
+          User().
+        ]]>
+      </body>
+    </emailNotificationTemplate>
+    <emailNotificationTemplate>
+      <templateId>MAIL_ON_SUBMIT</templateId>
+      <recipient>emailRole(Coordinators)</recipient>
+      <subject>Transport Request: Submitted</subject>
+      <body>
+        <![CDATA[
+          Please note that I have submitted the following transport request.
+
+          Requestor : field(createdBy)
+          Date      : DateTime()
+          Time      : field(ProposedStartTime)
+
+          Link  : Link()
+
+          Regards,
+
+          User().
+        ]]>
+      </body>
+    </emailNotificationTemplate>
+  </emailNotificationTemplates>
+  <views>
+    <group>
+      <title>User()</title>
+      <view>
+        <viewId>1</viewId>
+        <name>Inbox</name>
+        <groupBy>status</groupBy>
+        <filter>field(statusId) != "COMPLETED"</filter>
+        <columns>
+          <column>
+            <name>Date</name>
+            <controlId>createdDate</controlId>
+          </column>
+          <column>
+            <name>Requestor</name>
+            <controlId>createdBy</controlId>
+          </column>
+          <column>
+            <name>Transport Date</name>
+            <controlId>ProposedDate</controlId>
+          </column>
+          <column>
+            <name>Time</name>
+            <controlId>ProposedStartTime</controlId>
+          </column>
+          <column>
+            <name>Type</name>
+            <controlId>TypeOfTransport</controlId>
+          </column>
+        </columns>
+      </view>
+      <view>
+        <viewId>2</viewId>
+        <name>All Requests</name>
+        <groupBy>status</groupBy>
+        <columns>
+          <column>
+            <name>Date</name>
+            <controlId>createdDate</controlId>
+          </column>
+          <column>
+            <name>Requestor</name>
+            <controlId>createdBy</controlId>
+          </column>
+          <column>
+            <name>Transport Date</name>
+            <controlId>ProposedDate</controlId>
+          </column>
+          <column>
+            <name>Time</name>
+            <controlId>ProposedStartTime</controlId>
+          </column>
+          <column>
+            <name>Type</name>
+            <controlId>TypeOfTransport</controlId>
+          </column>
+        </columns>
+      </view>
+      <view>
+        <viewId>3</viewId>
+        <name>Transport Inbox</name>
+        <visible>In(User(), role(Drivers))</visible>
+        <listAllRequests>true</listAllRequests>
+        <columns>
+          <column>
+            <name>Date</name>
+            <controlId>createdDate</controlId>
+          </column>
+          <column>
+            <name>Requestor</name>
+            <controlId>createdBy</controlId>
+          </column>
+          <column>
+            <name>Transport Date</name>
+            <controlId>ProposedDate</controlId>
+          </column>
+          <column>
+            <name>Time</name>
+            <controlId>ProposedStartTime</controlId>
+          </column>
+          <column>
+            <name>Type</name>
+            <controlId>TypeOfTransport</controlId>
+          </column>
+        </columns>
+      </view>
+    </group>
+    <group>
+      <title>Transport Requests</title>
+      <visible>In(User(), role(Coordinators)) #or# In(User(), role(Drivers)) #or# In(User(), role(OtherViewusers))</visible>
+      <view>
+        <viewId>4</viewId>
+        <groupBy>status</groupBy>
+        <name>By Status</name>
+        <columns>
+          <column>
+            <name>Date</name>
+            <controlId>createdDate</controlId>
+          </column>
+          <column>
+            <name>Requestor</name>
+            <controlId>createdBy</controlId>
+          </column>
+          <column>
+            <name>Transport Date</name>
+            <controlId>ProposedDate</controlId>
+          </column>
+          <column>
+            <name>Time</name>
+            <controlId>ProposedStartTime</controlId>
+          </column>
+          <column>
+            <name>Type</name>
+            <controlId>TypeOfTransport</controlId>
+          </column>
+        </columns>
+      </view>
+      <!--<view>
+        <viewId>5</viewId>
+        <name>By Date: Calendar</name>
+      </view>-->
+      <view>
+        <viewId>6</viewId>
+        <name>By Date: List</name>
+        <groupBy>DateList:createdDate</groupBy>
+        <columns>
+          <column>
+            <name>Date</name>
+            <controlId>createdDate</controlId>
+          </column>
+          <column>
+            <name>Requestor</name>
+            <controlId>createdBy</controlId>
+          </column>
+          <column>
+            <name>Transport Date</name>
+            <controlId>ProposedDate</controlId>
+          </column>
+          <column>
+            <name>Time</name>
+            <controlId>ProposedStartTime</controlId>
+          </column>
+          <column>
+            <name>Type</name>
+            <controlId>TypeOfTransport</controlId>
+          </column>
+        </columns>
+      </view>
+      <view>
+        <viewId>7</viewId>
+        <name>By Type</name>
+        <groupBy>TypeOfTransport</groupBy>
+        <columns>
+          <column>
+            <name>Date</name>
+            <controlId>createdDate</controlId>
+          </column>
+          <column>
+            <name>Requestor</name>
+            <controlId>createdBy</controlId>
+          </column>
+          <column>
+            <name>Transport Date</name>
+            <controlId>ProposedDate</controlId>
+          </column>
+          <column>
+            <name>Time</name>
+            <controlId>ProposedStartTime</controlId>
+          </column>
+          <column>
+            <name>Status</name>
+            <controlId>status</controlId>
+          </column>
+        </columns>
+      </view>
+      <view>
+        <viewId>8</viewId>
+        <name>By Transport Coordinator</name>
+        <groupBy>TransportCoordinator</groupBy>
+        <columns>
+          <column>
+            <name>Date</name>
+            <controlId>createdDate</controlId>
+          </column>
+          <column>
+            <name>Requestor</name>
+            <controlId>createdBy</controlId>
+          </column>
+          <column>
+            <name>Transport Date</name>
+            <controlId>ProposedDate</controlId>
+          </column>
+          <column>
+            <name>Time</name>
+            <controlId>ProposedStartTime</controlId>
+          </column>
+          <column>
+            <name>Status</name>
+            <controlId>status</controlId>
+          </column>
+        </columns>
+      </view>
+      <view>
+        <viewId>9</viewId>
+        <name>By Driver</name>
+        <groupBy>Driver</groupBy>
+        <columns>
+          <column>
+            <name>Date</name>
+            <controlId>createdDate</controlId>
+          </column>
+          <column>
+            <name>Requestor</name>
+            <controlId>createdBy</controlId>
+          </column>
+          <column>
+            <name>Transport Date</name>
+            <controlId>ProposedDate</controlId>
+          </column>
+          <column>
+            <name>Time</name>
+            <controlId>ProposedStartTime</controlId>
+          </column>
+          <column>
+            <name>Status</name>
+            <controlId>status</controlId>
+          </column>
+        </columns>
+      </view>
+      <view>
+        <viewId>10</viewId>
+        <name>Completed / Total Weight</name>
+        <groupBy>DateList:ProposedDate</groupBy>
+        <filter>field(statusId) == "COMPLETED" #and# field(TotalGoodsWeight) != ""</filter>
+        <columns>
+          <column>
+            <name>Date</name>
+            <controlId>createdDate</controlId>
+          </column>
+          <column>
+            <name>Requestor</name>
+            <controlId>createdBy</controlId>
+          </column>
+          <column>
+            <name>Transport Date</name>
+            <controlId>ProposedDate</controlId>
+          </column>
+          <column>
+            <name>Time</name>
+            <controlId>ProposedStartTime</controlId>
+          </column>
+          <column>
+            <name>Weight</name>
+            <controlId>TotalGoodsWeight</controlId>
+          </column>
+        </columns>
+      </view>
+    </group>
+  </views>
+</body>

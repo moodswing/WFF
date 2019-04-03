@@ -1,0 +1,175 @@
+﻿@model WFF.ViewModels.HeaderViewModel
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("[name='createNewForm'],[name='openRequestForm']").on('click', function (event) {
+            OpenLoadModal();
+        });
+
+        @if (Model != null && Model.FormActions != null)
+        {
+            foreach (var action in Model.FormActions)
+            {
+                if (!string.IsNullOrEmpty(action.VisibleValidation))
+                {
+                    <text>
+                        SetFieldsValidations('@(action.VisibleValidation)', '@(action.Id)', 'action');
+                        $(document).on('change', "input", function () {
+                            SetFieldsValidations('@(action.VisibleValidation)', '@(action.Id)', 'action');
+                        });
+                    </text>
+                }
+            }
+        }
+    });
+
+    function OpenMessageModal(title, content) {
+        $("#modalMessage").modal('toggle');
+        $("#modalMessage #messageTitle").html(title);
+        $("#modalMessage #messageContent").html(content);
+
+        $("#modalMsgNo").hide();
+        $("#modalMsgYes").hide();
+        $("#modalMsgClose").show();
+    }
+
+    function OpenYesNoModal(title, content, yesFunction, commentRequired, cancelStatusChange) {
+        if (cancelStatusChange != 'True' && !isRequestFormValid()) return;
+
+        $("#modalMessage").modal('toggle');
+        $("#modalMessage #messageTitle").html(title);
+        $("#modalMessage #messageContent").html(ParseFieldsToFormData(content));
+        $("#modalMsgNo").show();
+        $("#modalMsgYes").show();
+        $("#modalMsgClose").hide();
+
+        if (commentRequired == "True") {
+            $("#modalMsgYes").attr("onclick", 'OpenCommentModal("' + yesFunction + '")');
+        }
+        else {
+            $("#modalMsgYes").attr("onclick", yesFunction);
+        }
+    }
+
+    function OpenLoadModal() {
+        $("#modalLoading").modal('toggle');
+        $("#modalLoading #lblLoading").html('l o a d i n g . . .');
+    }
+</script>
+<section id="Top-fijo">
+    <div class="navbar-fixed-top">
+        <div class="container">
+            <div class="row fila-angosta">
+                <div class="col-ms-12">
+                    <nav class="navbar navbar-default navbar-wrapper">
+                        <div class="collapse navbar-collapse" id="bs-menu1">
+                            <ul class="nav navbar-nav navbar-right">
+                                @*<li><a href="./Main"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;@Resources.Language.lblHome </a></li>*@
+                                <li><a href="./Main"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;Home </a></li>
+                                <li><a href="./About">@*@Resources.Language.lblAbout*@</a></li>
+                                <li><a href="./About">About</a></li>
+                                <li><a href="./Contacto">@*@Resources.Language.lblContact*@</a></li>
+                                <li><a href="./Contacto">Contact</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="azul">
+            <div class="container">
+                <nav class="navbar navbar-inverse navbar-wrapper">
+                    @if (Model != null)
+                    {
+                        if (Model.AddNewForm != null)
+                        {
+                            <button class="btn btn-secondary dropdown-toggle" name="createNewForm" onclick="location.href='@(Url.Action("NewRequest", "FormRequest", new { idForm = Model.IdForm }))'" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                @Model.AddNewForm.Title
+                            </button>
+                        }
+                        if (Model.ReturnAction != null)
+                        {
+                            <button class="btn btn-secondary dropdown-toggle" onclick="location.href='@(Url.Action("Index", "Desktop"))'" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                @Model.ReturnAction.Title
+                            </button>
+                        }
+                        if (Model.SaveForm != null)
+                        {
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="SaveForm();">
+                                @Model.SaveForm.Title
+                            </button>
+                        }
+                        if (Model.CloseForm != null)
+                        {
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="$('#closeRequestFormModal').modal('toggle')">
+                                @Model.CloseForm.Title
+                            </button>
+                        }
+                        if (Model.FormActions != null && Model.FormActions.Any())
+                        {
+                            <span class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Actions
+                                    <span class="caret"></span>
+                                </button>
+                                <div class="dropdown-menu pull-left actions">
+                                    @foreach (var action in Model.FormActions)
+                                    {
+                                        <div id="action@(action.Id)" class="action-button action-list">
+                                            <form>
+                                                @Html.Hidden("RequestFormId", action.RequestFormId.ToString())
+                                                @Html.Hidden("RequiredFields", action.RequiredFields)
+                                                @Html.Hidden("SendEmailNotification", action.SendEmailNotification)
+                                                @Html.Hidden("NewStatus", action.NewStatus)
+                                                @Html.Hidden("NewStatusDisplayName", action.NewStatusDisplayName)
+                                                @Html.Hidden("HistoryText", action.HistoryText)
+                                                <button class="dropdown-item" type="button" onclick="OpenYesNoModal('Warning', '@action.ConfirmationText', 'ChangeRequestStatus(\'#action@(action.Id) form\', @(string.IsNullOrEmpty(action.JSFunction) ? @"\'\'" : @"\'" + action.JSFunction + @"\'"), \'@(action.AddCommentToList)\', \'@(action.CancelStatusChange.ToString())\');', '@action.CommentRequired.ToString()', '@(action.CancelStatusChange.ToString())');">
+                                                    @action.Title
+                                                </button>
+                                                <input type="hidden" id="visibleValidation@(action.Id)" value="@(action.VisibleValidation)" />
+                                            </form>
+                                        </div>
+                                    }
+                                </div>
+                            </span>
+                        }
+                    }
+                </nav>
+            </div>
+        </div>
+        <div id="tituloPagina" class="row">
+        </div>
+    </div>
+</section>
+
+<div class="modal fade" id="modalLoading" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content modal-loading">
+            <img class="btn-open-modal" src="~/images/loading.gif" data-toggle="modal" data-target="#selectUserModal">
+            <div id="lblLoading">
+                l o a d i n g . . .
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalMessage" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content" style="width: 600px;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h3 class="modal-title" id="messageTitle"></h3>
+            </div>
+            <div class="modal-body">
+                <div id="messageContent">
+                </div>
+            </div>
+            <div class="modal-footer row">
+                <button id="modalMsgNo" type="button" class="btn btn-secondary" data-dismiss="modal" style="display: none;">No</button>
+                <button id="modalMsgYes" type="button" class="btn btn-primary" style="display: none;">Yes</button>
+                <button id="modalMsgClose" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

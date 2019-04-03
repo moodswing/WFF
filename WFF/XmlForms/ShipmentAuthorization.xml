@@ -1,0 +1,1825 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<body>
+  <title>Shipment Authorization</title>
+  <headerTitle>Shipment Authorization</headerTitle>
+  <idForm>1</idForm>
+  <referenceCode>RRU</referenceCode>
+  <initialInput>
+    <status></status>
+    <statusId></statusId>
+    <formRequestId></formRequestId>
+    <createdBy></createdBy>
+    <createdByEmail></createdByEmail>
+    <createdDate></createdDate>
+    <currentUser></currentUser>
+    <currentUserEmail></currentUserEmail>
+    <userAssigned></userAssigned>
+  </initialInput>
+  <pages>
+    <page>
+      <id>1</id>
+      <label>Request Details</label>
+    </page>
+    <page>
+      <id>History</id>
+      <label>History</label>
+    </page>
+  </pages>
+  <fields>
+    <field>
+      <controlId>Reference</controlId>
+      <label>Reference</label>
+      <type>label</type>
+      <page>1</page>
+      <columnSize>half</columnSize>
+      <value></value>
+    </field>
+    <field>
+      <controlId>CreatedBy</controlId>
+      <label>Created By</label>
+      <type>label</type>
+      <page>1</page>
+      <columnSize>half</columnSize>
+      <dataOrigin>initialInput</dataOrigin>
+      <value>createdBy</value>
+    </field>
+    <field>
+      <controlId>Sender</controlId>
+      <label>Sender</label>
+      <type>selectUser</type>
+      <page>1</page>
+      <columnSize>full</columnSize>
+    </field>
+    <field>
+      <controlId>Office</controlId>
+      <label>Office</label>
+      <type>modalTable</type>
+      <dataSource>Office</dataSource>
+      <page>1</page>
+      <columnSize>full</columnSize>
+    </field>
+    <field>
+      <controlId>DistributionUnitAssistant</controlId>
+      <label>Distribution Unit Assistant</label>
+      <type>rolesModalTable</type>
+      <dataSource>DistributionUnitAssistants</dataSource>
+      <page>1</page>
+      <columnSize>full</columnSize>
+      <visibleWhen>field(Office) == "Distribution Unit"</visibleWhen>
+    </field>
+    <field>
+      <controlId>Supervisor</controlId>
+      <label>Supervisor</label>
+      <type>selectUser</type>
+      <page>1</page>
+      <columnSize>full</columnSize>
+    </field>
+    <field>
+      <controlId>CertifyingOfficer</controlId>
+      <label>Certifying Officer</label>
+      <type>rolesModalTable</type>
+      <dataSource>Certifiers</dataSource>
+      <page>1</page>
+      <columnSize>full</columnSize>
+      <visibleWhen>field(UseTwoAccounts) != "true"</visibleWhen>
+    </field>
+    <field>
+      <controlId>FirstCertifyingOfficer</controlId>
+      <label>First Certifying Officer/FMO</label>
+      <type>rolesModalTable</type>
+      <dataSource>Certifiers</dataSource>
+      <page>1</page>
+      <columnSize>full</columnSize>
+      <visibleWhen>field(UseTwoAccounts) == "true"</visibleWhen>
+    </field>
+    <field>
+      <controlId>SecondCertifyingOfficer</controlId>
+      <label>Second Certifying Officer/FMO</label>
+      <type>rolesModalTable</type>
+      <dataSource>Certifiers</dataSource>
+      <page>1</page>
+      <columnSize>full</columnSize>
+      <visibleWhen>field(UseTwoAccounts) == "true"</visibleWhen>
+    </field>
+    <field>
+      <controlId>AccountToCharge</controlId>
+      <label>Account to Charge (BAC)</label>
+      <type>custom</type>
+      <page>1</page>
+      <columnSize>full</columnSize>
+      <visibleWhen>field(UseTwoAccounts) != "true"</visibleWhen>
+      <details>
+        <field>
+          <controlId>AccountToChargeYear</controlId>
+          <label>Year</label>
+          <type>textbox</type>
+        </field>
+        <field>
+          <controlId>AccountToChargeFund</controlId>
+          <label>Fund</label>
+          <type>textbox</type>
+        </field>
+        <field>
+          <controlId>AccountToChargeOrgUnit</controlId>
+          <label>Org Unit</label>
+          <type>textbox</type>
+        </field>
+        <field>
+          <controlId>AccountToChargeProject</controlId>
+          <label>Project</label>
+          <type>textbox</type>
+        </field>
+        <field>
+          <controlId>AccountToChargeProgram</controlId>
+          <label>Program</label>
+          <type>textbox</type>
+        </field>
+        <field>
+          <controlId>AccountToChargeObject</controlId>
+          <label>Object</label>
+          <type>textbox</type>
+        </field>
+        <field>
+          <controlId>AccountToChargeActivityCode</controlId>
+          <label>Activity Code</label>
+          <type>textbox</type>
+        </field>
+      </details>
+    </field>
+    <field>
+      <controlId>FirstAccountToCharge</controlId>
+      <label>First Account to Charge</label>
+      <type>custom</type>
+      <page>1</page>
+      <columnSize>full</columnSize>
+      <visibleWhen>field(UseTwoAccounts) == "true"</visibleWhen>
+      <details>
+        <field>
+          <controlId>FirstAccountToChargeYear</controlId>
+          <label>Year</label>
+          <type>textbox</type>
+        </field>
+        <field>
+          <controlId>FirstAccountToChargeFund</controlId>
+          <label>Fund</label>
+          <type>textbox</type>
+        </field>
+        <field>
+          <controlId>FirstAccountToChargeOrgUnit</controlId>
+          <label>Org Unit</label>
+          <type>textbox</type>
+        </field>
+        <field>
+          <controlId>FirstAccountToChargeProject</controlId>
+          <label>Project</label>
+          <type>textbox</type>
+        </field>
+        <field>
+          <controlId>FirstAccountToChargeProgram</controlId>
+          <label>Program</label>
+          <type>textbox</type>
+        </field>
+        <field>
+          <controlId>FirstAccountToChargeObject</controlId>
+          <label>Object</label>
+          <type>textbox</type>
+        </field>
+        <field>
+          <controlId>FirstAccountToChargeActivityCode</controlId>
+          <label>Activity Code</label>
+          <type>textbox</type>
+        </field>
+      </details>
+    </field>
+    <field>
+      <controlId>SecondAccountToCharge</controlId>
+      <label>Second Account to Charge</label>
+      <type>custom</type>
+      <page>1</page>
+      <columnSize>full</columnSize>
+      <visibleWhen>field(UseTwoAccounts) == "true"</visibleWhen>
+      <details>
+        <field>
+          <controlId>SecondAccountToChargeYear</controlId>
+          <label>Year</label>
+          <type>textbox</type>
+        </field>
+        <field>
+          <controlId>SecondAccountToChargeFund</controlId>
+          <label>Fund</label>
+          <type>textbox</type>
+        </field>
+        <field>
+          <controlId>SecondAccountToChargeOrgUnit</controlId>
+          <label>Org Unit</label>
+          <type>textbox</type>
+        </field>
+        <field>
+          <controlId>SecondAccountToChargeProject</controlId>
+          <label>Project</label>
+          <type>textbox</type>
+        </field>
+        <field>
+          <controlId>SecondAccountToChargeProgram</controlId>
+          <label>Program</label>
+          <type>textbox</type>
+        </field>
+        <field>
+          <controlId>SecondAccountToChargeObject</controlId>
+          <label>Object</label>
+          <type>textbox</type>
+        </field>
+        <field>
+          <controlId>SecondAccountToChargeActivityCode</controlId>
+          <label>Activity Code</label>
+          <type>textbox</type>
+        </field>
+      </details>
+    </field>
+    <field>
+      <controlId>PercentageFromChargeToFirstAccount</controlId>
+      <label>Percentage to Charge from First Account</label>
+      <type>textbox</type>
+      <page>1</page>
+      <columnSize>full</columnSize>
+      <visibleWhen>field(UseTwoAccounts) == "true"</visibleWhen>
+    </field>
+    <field>
+      <controlId>ObligationDocumentId</controlId>
+      <label>Obligation Document Id (OBMO)</label>
+      <type>textbox</type>
+      <page>1</page>
+      <columnSize>full</columnSize>
+    </field>
+    <field>
+      <controlId>Content</controlId>
+      <label>Content</label>
+      <type>checkbox</type>
+      <dataSource>Content</dataSource>
+      <page>1</page>
+      <columnSize>half</columnSize>
+    </field>
+    <field>
+      <controlId>PackageType</controlId>
+      <label>Package Type</label>
+      <type>checkbox</type>
+      <dataSource>PackageType</dataSource>
+      <page>1</page>
+      <columnSize>half</columnSize>
+    </field>
+    <field>
+      <controlId>NumberOfItems</controlId>
+      <label>Number of Items</label>
+      <type>textbox</type>
+      <page>1</page>
+      <columnSize>half</columnSize>
+    </field>
+    <field>
+      <controlId>TotalWeight</controlId>
+      <label>Total weight (kg)</label>
+      <type>textbox</type>
+      <page>1</page>
+      <columnSize>half</columnSize>
+    </field>
+    <field>
+      <controlId>PreferredModeOfDispatch</controlId>
+      <label>Preferred Mode of Dispatch</label>
+      <type>radiobutton</type>
+      <dataSource>ModeOfDispatches</dataSource>
+      <page>1</page>
+      <columnSize>full</columnSize>
+    </field>
+    <field>
+      <controlId>DestinationAddress</controlId>
+      <label>Destination Address</label>
+      <type>textbox</type>
+      <page>1</page>
+      <columnSize>full</columnSize>
+    </field>
+    <field>
+      <controlId>PhysicalAddress</controlId>
+      <label>Physical Address</label>
+      <type>custom</type>
+      <page>1</page>
+      <columnSize>full</columnSize>
+      <visible>false</visible>
+      <details>
+        <field>
+          <controlId>PhysicalAddressName</controlId>
+          <label>Name</label>
+          <type>textbox</type>
+        </field>
+        <field>
+          <controlId>PhysicalAddressStreetName</controlId>
+          <label>Street Name</label>
+          <type>textbox</type>
+        </field>
+        <field>
+          <controlId>PhysicalAddressNumber</controlId>
+          <label>Number</label>
+          <type>textbox</type>
+        </field>
+        <field>
+          <controlId>PhysicalAddressCity</controlId>
+          <label>City</label>
+          <type>textbox</type>
+        </field>
+        <field>
+          <controlId>PhysicalAddressState</controlId>
+          <label>State/Comuna</label>
+          <type>textbox</type>
+        </field>
+        <field>
+          <controlId>PhysicalAddressCountry</controlId>
+          <label>Country</label>
+          <type>textbox</type>
+        </field>
+        <field>
+          <controlId>PhysicalAddressPostalCode</controlId>
+          <label>Postal Code</label>
+          <type>textbox</type>
+        </field>
+        <field>
+          <controlId>PhysicalAddressPhoneNumber</controlId>
+          <label>Phone Number</label>
+          <type>textbox</type>
+        </field>
+      </details>
+    </field>
+    <field>
+      <controlId>Priority</controlId>
+      <label>Priority</label>
+      <type>radiobutton</type>
+      <dataSource>Priority</dataSource>
+      <page>1</page>
+      <columnSize>full</columnSize>
+    </field>
+    <field>
+      <controlId>SpecialInstructions</controlId>
+      <label>Special Instructions (Optional)</label>
+      <type>textbox</type>
+      <page>1</page>
+      <columnSize>full</columnSize>
+    </field>
+    <field>
+      <controlId>AdditionalAttachments</controlId>
+      <label>Additional Attachments/Remarks</label>
+      <type>textbox</type>
+      <page>1</page>
+      <columnSize>full</columnSize>
+    </field>
+    <field>
+      <controlId>EstimatedCost</controlId>
+      <label>Estimated Cost (USD)</label>
+      <type>textbox</type>
+      <page>1</page>
+      <columnSize>full</columnSize>
+      <format>number</format>
+    </field>
+    <field>
+      <controlId>FinalEstimatedCost</controlId>
+      <label>Final Estimated Cost (USD)</label>
+      <type>textbox</type>
+      <page>1</page>
+      <columnSize>full</columnSize>
+      <format>number</format>
+    </field>
+    <field>
+      <controlId>AllCost</controlId>
+      <label>Actual Cost (USD)</label>
+      <type>textbox</type>
+      <page>1</page>
+      <columnSize>full</columnSize>
+      <format>number</format>
+      <visible>false</visible>
+    </field>
+    <field>
+      <controlId>InvoiceNumber</controlId>
+      <label>Invoice Number</label>
+      <type>textbox</type>
+      <page>1</page>
+      <columnSize>half</columnSize>
+      <visible>false</visible>
+    </field>
+    <field>
+      <controlId>AirBillNumber</controlId>
+      <label>Air Bill Number</label>
+      <type>textbox</type>
+      <page>1</page>
+      <columnSize>half</columnSize>
+      <visible>false</visible>
+  </field>
+    <field>
+      <controlId>UseTwoAccounts</controlId>
+      <type>hidden</type>
+      <page>1</page>
+      <value>false</value>
+    </field>
+  </fields>
+  <parameters>
+    <parameter>
+      <id>Office</id>
+      <type>table</type>
+      <title>Office List</title>
+      <subtitle>Please select an office</subtitle>
+      <columns>
+        <column saveValue="true">
+          Name
+        </column>
+        <column>
+          Acronym
+        </column>
+      </columns>
+      <values>
+        <value>
+          <col>Bogota Office</col>
+          <col>Bogota</col>
+        </value>
+        <value>
+          <col>Brasilia Office</col>
+          <col>Brasilia Office</col>
+        </value>
+        <value>
+          <col>Buenos Aires Office</col>
+          <col>Buenos Aires Office</col>
+        </value>
+        <value>
+          <col>Buildings Management &amp; Maintenance Unit</col>
+          <col>GSS/BMU</col>
+        </value>
+        <value>
+          <col>Clinic</col>
+          <col>Clinic</col>
+        </value>
+        <value>
+          <col>Communications Unit</col>
+          <col>ICTS/Comms</col>
+        </value>
+        <value>
+          <col>Conference Services Unit</col>
+          <col>CSU</col>
+        </value>
+        <value>
+          <col>Contract Management Unit</col>
+          <col>CMU</col>
+        </value>
+        <value>
+          <col>Deputy Executive Secretary</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Distribution Unit</col>
+          <col>DU</col>
+        </value>
+        <value>
+          <col>Division for Gender Affairs</col>
+          <col>DGA</col>
+        </value>
+        <value>
+          <col>Division of Production, Productivity and Management</col>
+          <col>DPPM</col>
+        </value>
+        <value>
+          <col>Economic Development Division</col>
+          <col>DE</col>
+        </value>
+        <value>
+          <col>Financial Services Section</col>
+          <col>FSS</col>
+        </value>
+        <value>
+          <col>Financing for Development Division </col>
+          <col>Financing for Development Division </col>
+        </value>
+        <value>
+          <col>General Services Section</col>
+          <col>GSS</col>
+        </value>
+        <value>
+          <col>Human Resources Section</col>
+          <col>HRS</col>
+        </value>
+        <value>
+          <col>Human Rights Unit</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Information Communications Technologies Section</col>
+          <col>STIC</col>
+        </value>
+        <value>
+          <col>Information Services Unit</col>
+          <col></col>
+        </value>
+        <value>
+          <col>International Trade and Integration Division</col>
+          <col>DCII</col>
+        </value>
+        <value>
+          <col>International Trade Unit</col>
+          <col>ITU</col>
+        </value>
+        <value>
+          <col>Latin American and Caribbean Institute for Economic and Social Planning</col>
+          <col>ILPES</col>
+          <changeFieldValues>
+            <changeValue>
+              <field>CertifyingOfficer</field>
+              <value>Robinson Aravena</value>
+            </changeValue>
+            <changeValue>
+              <field>FirstCertifyingOfficer</field>
+              <value>Robinson Aravena</value>
+            </changeValue>
+          </changeFieldValues>
+        </value>
+        <value>
+          <col>Library</col>
+          <col>Hernán Santa Cruz Library</col>
+        </value>
+        <value>
+          <col>Maintenance</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Montevideo Office</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Natural Resources and Infrastructure Division</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Office of the Executive Secretary</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Office of the Ombudsman - Santiago</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Office of the Secretary of the Commission</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Population Division - CELADE</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Programme Planning and Operations Division</col>
+          <col>DPPO</col>
+        </value>
+        <value>
+          <col>Purchase Unit</col>
+          <col>GSS/PU</col>
+        </value>
+        <value>
+          <col>Registry and Archives</col>
+          <col>GSS/RA</col>
+        </value>
+        <value>
+          <col>Safety and Security Services, Santiago</col>
+          <col>SSS</col>
+        </value>
+        <value>
+          <col>Social Development Division</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Staff Council</col>
+          <col>Staff Council</col>
+        </value>
+        <value>
+          <col>Statistics and Economic Projections Division</col>
+          <col>DEPE</col>
+        </value>
+        <value>
+          <col>Subregional Headquarters for the Caribbean - Port of Spain</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Subregional Office in Mexico</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Sustainable Development and Human Settlements Division</col>
+          <col>DDSAH</col>
+        </value>
+        <value>
+          <col>Travel, Traffic and Local Transportation Unit</col>
+          <col>GSS/TTTU</col>
+        </value>
+        <value>
+          <col>Washington Office</col>
+          <col>Washington Office</col>
+        </value>
+      </values>
+    </parameter>
+    <parameter>
+      <id>Content</id>
+      <options>
+        <option>
+          <value>Correspondence</value>
+          <description>Correspondence</description>
+        </option>
+        <option>
+          <value>Documents</value>
+          <description>Documents</description>
+        </option>
+        <option>
+          <value>Audio/Visual</value>
+          <description>Audio/Visual</description>
+        </option>
+        <option>
+          <value>Confidential</value>
+          <description>Confidential</description>
+        </option>
+        <option>
+          <value>Hardware</value>
+          <description>Hardware</description>
+        </option>
+        <option>
+          <value>Telecommunications Equipment</value>
+          <description>Telecommunications Equipment</description>
+        </option>
+        <option>
+          <value>Data Storage Equipment</value>
+          <description>Data Storage Equipment</description>
+        </option>
+      </options>
+    </parameter>
+    <parameter>
+      <id>PackageType</id>
+      <options>
+        <option>
+          <value>Letter Sized Envelopes (up to A5)</value>
+          <description>Letter Sized Envelopes (up to A5)</description>
+        </option>
+        <option>
+          <value>Box/Carton</value>
+          <description>Box/Carton</description>
+        </option>
+        <option>
+          <value>Package</value>
+          <description>Package</description>
+        </option>
+        <option>
+          <value>Document Envelope (A4 – A3)</value>
+          <description>Document Envelope (A4 – A3)</description>
+        </option>
+      </options>
+    </parameter>
+    <parameter>
+      <id>ModeOfDispatches</id>
+      <options>
+        <option>
+          <value>Courier</value>
+          <description>Courier</description>
+          <removeControl>DestinationAddress</removeControl>
+        </option>
+        <option>
+          <value>Pouch</value>
+          <description>Pouch</description>
+          <removeControl>PhysicalAddress</removeControl>
+        </option>
+        <option>
+          <value>Mail</value>
+          <description>Mail</description>
+          <removeControl>PhysicalAddress</removeControl>
+        </option>
+      </options>
+    </parameter>
+    <parameter>
+      <id>Priority</id>
+      <options>
+        <option>
+          <value>Normal</value>
+          <description>Normal</description>
+          <default>true</default>
+        </option>
+        <option>
+          <value>Low</value>
+          <description>Low</description>
+        </option>
+        <option>
+          <value>Urgent</value>
+          <description>Urgent</description>
+        </option>
+      </options>
+    </parameter>
+    <parameter>
+      <id>PrecertifiedRequestsDepartments</id>
+      <description>Departments with pre-certified requests</description>
+      <value>Distribution Unit</value>
+    </parameter>
+    <parameter>
+      <id>OwnAccountsDepartments</id>
+      <description>Departments with own accounts</description>
+      <value>Latin American and Caribbean Institute for Economic and Social Planning|Travel, Traffic and Local Transportation Unit</value>
+    </parameter>
+    <parameter>
+      <id>HighPriorityRequestsDepartments</id>
+      <description>Departments with high priority requests</description>
+      <value>Distribution Unit</value>
+    </parameter>
+  </parameters>
+  <statuses>
+    <status>
+      <name>MARKED_FOR_DELETION</name>
+      <displayName>Marked for Deletion</displayName>
+      <userAssigned>field(createdBy)</userAssigned>
+      <order>14</order>
+    </status>
+    <status>
+      <name>DECLINED</name>
+      <displayName>Declined</displayName>
+      <userAssigned>field(createdBy)</userAssigned>
+      <hiddenFields>AllCost,InvoiceNumber,AirBillNumber</hiddenFields>
+      <order>13</order>
+    </status>
+    <status>
+      <name>DISPATCHED</name>
+      <displayName>Dispatched</displayName>
+      <userAssigned>field(createdBy)</userAssigned>
+      <editableFields>AllCost,InvoiceNumber,AirBillNumber</editableFields>
+      <order>12</order>
+      <actions>
+        <action>
+          <name>SEND_BACK_FOR_REVISION</name>
+          <displayName>Send back for Revision</displayName>
+          <targetStatus>NEW</targetStatus>
+        </action>
+      </actions>
+    </status>
+    <status>
+      <name>PENDING_DISPATCH</name>
+      <displayName>Awaiting Dispatch</displayName>
+      <userAssigned>field(AssignedTo)</userAssigned>
+      <hiddenFields>AllCost,InvoiceNumber,AirBillNumber</hiddenFields>
+      <editableFields>PreferredModeOfDispatch,SpecialInstructions,FinalEstimatedCost</editableFields>
+      <requiredFields>PreferredModeOfDispatch</requiredFields>
+      <order>11</order>
+      <actions>
+        <action>
+          <name>DISPATCH</name>
+          <displayName>Package Dispatched</displayName>
+          <targetStatus>DISPATCHED</targetStatus>
+          <sendEmailNotification>MAIL_TO_CREATOR_ON_DISPATCH</sendEmailNotification>
+          <confirmationText>Confirm package has been dispatched ?</confirmationText>
+          <historyText>Package dispatched.</historyText>
+        </action>
+      </actions>
+    </status>
+    <status>
+      <name>SENT_TO_RRU_FOR_DISPATCH</name>
+      <displayName>Sent to RRU for Dispatch</displayName>
+      <userAssigned>role(SharedInboxUsers)</userAssigned>
+      <hiddenFields>FinalEstimatedCost,AllCost,InvoiceNumber,AirBillNumber</hiddenFields>
+      <editableFields>AssignedTo</editableFields>
+      <order>10</order>
+      <actions>
+        <action>
+          <name>CHECK_OUT_FROM_RRU_INBOX</name>
+          <displayName>Check-out from Dispatch Inbox</displayName>
+          <targetStatus>PENDING_DISPATCH</targetStatus>
+          <confirmationText>Check out request from Inbox ?</confirmationText>
+          <historyText>Request checked-out for dispatch by RRU assistant (field(currentUser))</historyText>
+        </action>
+      </actions>
+    </status>
+    <status>
+      <name>PENDING_2ND_CERTIFICATION</name>
+      <displayName>Awaiting 2nd Certification</displayName>
+      <userAssigned>field(SecondCertifyingOfficer)</userAssigned>
+      <hiddenFields>FinalEstimatedCost,AllCost,InvoiceNumber,AirBillNumber</hiddenFields>
+      <editableFields>ObligationDocumentId,AccountToCharge,FirstAccountToCharge,SecondAccountToCharge,EstimatedCost</editableFields>
+      <order>9</order>
+      <actions>
+        <action>
+          <name>CERTIFY_2ND</name>
+          <displayName>Certify 2nd and Forward to Registry</displayName>
+          <targetStatus>SENT_TO_RRU_FOR_DISPATCH</targetStatus>
+          <visible>field(UseTwoAccounts) == 'true'</visible>
+          <requiredFields>ObligationDocumentId,FirstAccountToCharge,SecondAccountToCharge</requiredFields>
+          <sendEmailNotification>MAIL_TO_RRU_ON_CERTIFICATION</sendEmailNotification>
+          <confirmationText>Certify amount for 2nd Account ?</confirmationText>
+          <historyText>Second certification by (field(SecondCertifyingOfficer))</historyText>
+        </action>
+      </actions>
+    </status>
+    <status>
+      <name>PENDING_CERTIFICATION_FIXED_AC</name>
+      <displayName>Awaiting Certification - ILPES</displayName>
+      <userAssigned>field(CertifyingOfficer,FirstCertifyingOfficer)</userAssigned>
+      <hiddenFields>FinalEstimatedCost,AllCost,InvoiceNumber,AirBillNumber</hiddenFields>
+      <editableFields>ObligationDocumentId,AccountToCharge,FirstAccountToCharge,SecondAccountToCharge</editableFields>
+      <order>8</order>
+      <actions>
+        <action>
+          <name>CERTIFY_FIXED_AC</name>
+          <displayName>Certify and Forward to RRU</displayName>
+          <targetStatus>SENT_TO_RRU_FOR_DISPATCH</targetStatus>
+          <requiredFields>AccountToCharge,FirstAccountToCharge,SecondAccountToCharge</requiredFields>
+          <sendEmailNotification>MAIL_TO_RRU_ON_CERTIFICATION</sendEmailNotification>
+          <confirmationText>Certify package authorization ?</confirmationText>
+          <historyText>Package authorization certified by (field(CertifyingOfficer,FirstCertifyingOfficer))</historyText>
+        </action>
+        <action>
+          <name>DECLINE</name>
+          <displayName>Decline</displayName>
+          <targetStatus>DECLINED</targetStatus>
+          <sendEmailNotification>MAIL_TO_CREATOR_ON_DECLINE</sendEmailNotification>
+          <confirmationText>Decline this request ?</confirmationText>
+          <historyText>Package authorization declined by field(CertifyingOfficer,FirstCertifyingOfficer)</historyText>
+          <commentRequired>true</commentRequired>
+        </action>
+      </actions>
+    </status>
+    <status>
+      <name>PENDING_CERTIFICATION</name>
+      <displayName>Awaiting Certification</displayName>
+      <userAssigned>field(CertifyingOfficer,FirstCertifyingOfficer)</userAssigned>
+      <hiddenFields>TotalWeight,FinalEstimatedCost,AllCost,InvoiceNumber,AirBillNumber</hiddenFields>
+      <editableFields>ObligationDocumentId,AccountToCharge,FirstAccountToCharge,SecondAccountToCharge,EstimatedCost</editableFields>
+      <order>7</order>
+      <actions>
+        <action>
+          <name>CERTIFY</name>
+          <displayName>Certify and Forward to Registry</displayName>
+          <targetStatus>SENT_TO_RRU_FOR_DISPATCH</targetStatus>
+          <visible>field(UseTwoAccounts) != 'true'</visible>
+          <requiredFields>ObligationDocumentId,AccountToCharge,FirstAccountToCharge,SecondAccountToCharge</requiredFields>
+          <sendEmailNotification>MAIL_TO_RRU_ON_CERTIFICATION</sendEmailNotification>
+          <confirmationText>Certify package authorization ?</confirmationText>
+          <historyText>Package authorization certified by (field(CertifyingOfficer,FirstCertifyingOfficer))</historyText>
+        </action>
+        <action>
+          <name>CERTIFY_1ST</name>
+          <displayName>Certify 1st and Forward to 2nd Certifier</displayName>
+          <targetStatus>PENDING_2ND_CERTIFICATION</targetStatus>
+          <visible>field(UseTwoAccounts) == 'true'</visible>
+          <requiredFields>ObligationDocumentId,AccountToCharge,FirstAccountToCharge</requiredFields>
+          <sendEmailNotification>MAIL_TO_2ND_CERTIFYING_OFFICER</sendEmailNotification>
+          <confirmationText>Certify amount for 1st Account ?</confirmationText>
+          <historyText>First certification by field(CertifyingOfficer,FirstCertifyingOfficer)</historyText>
+        </action>
+        <action>
+          <name>REMIND_DPPO</name>
+          <displayName>Send Reminder to DPPO</displayName>
+          <targetStatus>PENDING_CERTIFICATION</targetStatus>
+          <visible>In(field(currentUser), role(SharedInboxUsers))</visible>
+          <sendEmailNotification>MAIL_TO_DPPO_ON_DELAY</sendEmailNotification>
+          <confirmationText>Send DPPO Reminder ?</confirmationText>
+          <historyText>A reminder email has been sent to the DPPO Administrative Assistant.</historyText>
+        </action>
+        <action>
+          <name>DECLINE</name>
+          <displayName>Decline</displayName>
+          <targetStatus>DECLINED</targetStatus>
+          <sendEmailNotification>MAIL_TO_CREATOR_ON_DECLINE</sendEmailNotification>
+          <confirmationText>Decline this request ?</confirmationText>
+          <historyText>Package authorization declined by field(CertifyingOfficer,FirstCertifyingOfficer)</historyText>
+          <commentRequired>true</commentRequired>
+        </action>
+        <action>
+          <name>SEND_BACK_FOR_REVISION</name>
+          <displayName>Send back for Revision</displayName>
+          <targetStatus>NEW</targetStatus>
+          <sendEmailNotification>MAIL_TO_REQUESTOR_FOR_REVISION</sendEmailNotification>
+          <confirmationText>Send request back to field(createdBy) for revision ?</confirmationText>
+          <historyText>Document sent back for Revision to (field(createdBy))</historyText>
+          <commentRequired>true</commentRequired>
+        </action>
+      </actions>
+    </status>
+    <status>
+      <name>SENT_TO_DPPO</name>
+      <displayName>Sent to DPPO</displayName>
+      <userAssigned>role(DPPOAdministrativeAssistant)</userAssigned>
+      <hiddenFields>FinalEstimatedCost,AllCost,InvoiceNumber,AirBillNumber</hiddenFields>
+      <editableFields>ObligationDocumentId,CertifyingOfficer,FirstCertifyingOfficer</editableFields>
+      <order>6</order>
+      <actions>
+        <action>
+          <name>ASSIGN</name>
+          <displayName>Assign for Certification</displayName>
+          <targetStatus>PENDING_CERTIFICATION</targetStatus>
+          <requiredFields>CertifyingOfficer,FirstCertifyingOfficer</requiredFields>
+          <sendEmailNotification>MAIL_TO_CERTIFYING_OFFICER</sendEmailNotification>
+          <confirmationText>Assign request to certifier (field(CertifyingOfficer,FirstCertifyingOfficer)) ?</confirmationText>
+          <historyText>Request assigned to Certifying Officer (field(CertifyingOfficer,FirstCertifyingOfficer)) by field(currentUser).</historyText>
+        </action>
+      </actions>
+    </status>
+    <status>
+      <name>PENDING_RRU_DETAILS</name>
+      <displayName>Awaiting Additional Details</displayName>
+      <userAssigned>field(AssignedTo)</userAssigned>
+      <hiddenFields>FinalEstimatedCost,AllCost,InvoiceNumber,AirBillNumber</hiddenFields>
+      <order>5</order>
+      <actions>
+        <action>
+          <name>SEND_TO_DPPO</name>
+          <displayName>Send to DPPO</displayName>
+          <targetStatus>SENT_TO_DPPO</targetStatus>
+          <requiredFields>TotalWeight,EstimatedCost</requiredFields>
+          <sendEmailNotification>MAIL_TO_DPPO,MAIL_TO_CREATOR_PENDING_DPPO</sendEmailNotification>
+          <confirmationText>Send shipment authorization request to DPPO ?</confirmationText>
+          <historyText>Sent to DPPO by field(currentUser)</historyText>
+        </action>
+      </actions>
+    </status>
+    <status>
+      <name>SENT_TO_RRU</name>
+      <displayName>Sent to RRU</displayName>
+      <userAssigned>role(SharedInboxUsers)</userAssigned>
+      <hiddenFields>FinalEstimatedCost,AllCost,InvoiceNumber,AirBillNumber</hiddenFields>
+      <editableFields>ObligationDocumentId,AccountToCharge,FirstAccountToCharge,SecondAccountToCharge,TotalWeight,PreferredModeOfDispatch,EstimatedCost</editableFields>
+      <order>4</order>
+      <actions>
+        <action>
+          <name>CHECK_OUT</name>
+          <displayName>Check-out from RRU Inbox</displayName>
+          <targetStatus>PENDING_RRU_DETAILS</targetStatus>
+          <requiredFields>AssignedTo</requiredFields>
+          <confirmationText>Check out this request from the RRU Inbox?</confirmationText>
+          <historyText>Checked out from RRU Inbox by field(currentUser)</historyText>
+        </action>
+        <action>
+          <name>SEND_BACK_FOR_REVISION</name>
+          <displayName>Send back for Revision</displayName>
+          <targetStatus>NEW</targetStatus>
+          <sendEmailNotification>MAIL_TO_REQUESTOR_FOR_REVISION</sendEmailNotification>
+          <confirmationText>Send request back to Creator (field(createdBy) for revision ?</confirmationText>
+          <historyText>Document sent back for Revision to (field(createdBy))</historyText>
+          <commentRequired>true</commentRequired>
+        </action>
+      </actions>
+    </status>
+    <status>
+      <name>PENDING_APPROVAL_FIXED_AC</name>
+      <displayName>Awaiting Approval - ILPES</displayName>
+      <userAssigned>field(Supervisor)</userAssigned>
+      <hiddenFields>FinalEstimatedCost,AllCost,InvoiceNumber,AirBillNumber</hiddenFields>
+      <editableFields>ObligationDocumentId,AccountToCharge,FirstAccountToCharge,SecondAccountToCharge,Content,PackageType,NumberOfItems,TotalWeight,PreferredModeOfDispatch,SpecialInstructions,AdditionalAttachments,CertifyingOfficer,FirstCertifyingOfficer,SecondCertifyingOfficer,EstimatedCost</editableFields>
+      <order>3</order>
+      <actions>
+        <action>
+          <name>SEND_BACK_FOR_REVISION_FIXED_AC</name>
+          <displayName>Send back for Revision</displayName>
+          <targetStatus>NEW</targetStatus>
+          <sendEmailNotification>MAIL_TO_REQUESTOR_FOR_REVISION</sendEmailNotification>
+          <confirmationText>Send request back to Creator field(createdBy) for revision ?</confirmationText>
+          <historyText>Document sent back for Revision to field(createdBy)</historyText>
+          <commentRequired>true</commentRequired>
+        </action>
+        <action>
+          <name>SEND_FOR_CERTIFICATION_FIXED_AC</name>
+          <displayName>Approve and Send for Certification</displayName>
+          <targetStatus>PENDING_CERTIFICATION_FIXED_AC</targetStatus>
+          <visible>In(field(Office), parameter(OwnAccountsDepartments))</visible>
+          <sendEmailNotification>MAIL_TO_CERTIFYING_OFFICER</sendEmailNotification>
+          <confirmationText>Send shipment authorization request to the Certifier field(CertifyingOfficer,FirstCertifyingOfficer) ?</confirmationText>
+          <historyText>Sent to Certifier by field(currentUser)</historyText>
+        </action>
+      </actions>
+    </status>
+    <status>
+      <name>PENDING_APPROVAL</name>
+      <displayName>Awaiting Approval</displayName>
+      <userAssigned>field(Supervisor)</userAssigned>
+      <order>2</order>
+      <hiddenFields>AllCost,InvoiceNumber,AirBillNumber</hiddenFields>
+      <editableFields>ObligationDocumentId,AccountToCharge,FirstAccountToCharge,SecondAccountToCharge,Content,PackageType,NumberOfItems,TotalWeight,PreferredModeOfDispatch,SpecialInstructions,AdditionalAttachments,CertifyingOfficer,FirstCertifyingOfficer,SecondCertifyingOfficer</editableFields>
+      <actions>
+        <action>
+          <name>APPROVE_CERTIFIED</name>
+          <displayName>Approve and Authorize Dispatch</displayName>
+          <targetStatus>SENT_TO_RRU_FOR_DISPATCH</targetStatus>
+          <visible>In(field(Office), parameter(PrecertifiedRequestsDepartments))</visible>
+          <requiredFields>ObligationDocumentId,TotalWeight,EstimatedCost</requiredFields>
+          <sendEmailNotification>MAIL_TO_RRU_FOR_DISPATCH,MAIL_TO_CREATOR_ON_APPROVAL</sendEmailNotification>
+          <confirmationText>This request does not need certification by DPPO. Confirm ?</confirmationText>
+          <historyText>Approved (Dispatch Authorized) and sent to RRU for dispatch.</historyText>
+        </action>
+        <action>
+          <name>SEND_TO_RRU</name>
+          <displayName>Approve and Forward to Registry</displayName>
+          <targetStatus>SENT_TO_RRU</targetStatus>
+          <requiredFields>TotalWeight,EstimatedCost</requiredFields>
+          <sendEmailNotification>MAIL_TO_RRU_ON_APPROVAL,MAIL_TO_CREATOR_ON_APPROVAL</sendEmailNotification>
+          <confirmationText>Approve request for shipment authorization ?</confirmationText>
+          <historyText>Approved and forwarded to RRU.</historyText>
+        </action>
+        <action>
+          <name>APPROVE_URGENT</name>
+          <displayName>Approve and Send to DPPO</displayName>
+          <targetStatus>SENT_TO_DPPO</targetStatus>
+          <visible>In(field(Office), parameter(HighPriorityRequestsDepartments))</visible>
+          <requiredFields>ObligationDocumentId,TotalWeight,EstimatedCost</requiredFields>
+          <sendEmailNotification>MAIL_TO_DPPO,MAIL_TO_RRU_ON_APPROVAL_FOR_INFO</sendEmailNotification>
+          <confirmationText>High Priority Request: Approve  and forward request to DPPO ?</confirmationText>
+          <historyText>Approved and sent to DPPO by field(currentUser).</historyText>
+        </action>
+        <action>
+          <name>PULL_BACK_REQUEST</name>
+          <displayName>Pull Back from Absent Supervisor</displayName>
+          <targetStatus>NEW</targetStatus>
+          <visible>In(field(currentUser), role(ILPESFocalPoint))</visible>
+          <sendEmailNotification>MAIL_ON_PULL_BACK</sendEmailNotification>
+          <confirmationText>Pull back request and send it to the requestor's inbox ?</confirmationText>
+          <historyText>Pulled back and sent to the requestor's inbox by field(currentUser).</historyText>
+          <commentRequired>true</commentRequired>
+        </action>
+        <action>
+          <name>SEND_BACK_FOR_REVISION</name>
+          <displayName>Send back for Revision</displayName>
+          <targetStatus>NEW</targetStatus>
+          <sendEmailNotification>MAIL_TO_REQUESTOR_FOR_REVISION</sendEmailNotification>
+          <confirmationText>Send request back to Creator field(createdBy) for revision ?</confirmationText>
+          <historyText>Document sent back for Revision to field(createdBy)</historyText>
+          <commentRequired>true</commentRequired>
+        </action>
+      </actions>
+    </status>
+    <status>
+      <name>PENDING_DU_DETAILS</name>
+      <displayName>Awaiting Package Details</displayName>
+      <userAssigned>field(createdBy)</userAssigned>
+      <requiredFields>Sender,Office,Supervisor,AccountToCharge,FirstAccountToCharge,SecondAccountToCharge,PercentageFromChargeToFirstAccount,Content,PackageType,PreferredModeOfDispatch,PhysicalAddress,DestinationAddress,EstimatedCost</requiredFields>
+      <hiddenFields>AllCost,InvoiceNumber,AirBillNumber</hiddenFields>
+      <editableFields>Sender,Office,Supervisor,ObligationDocumentId,AccountToCharge,FirstAccountToCharge,SecondAccountToCharge,PercentageFromChargeToFirstAccount,Content,PackageType,NumberOfItems,TotalWeight,PreferredModeOfDispatch,PhysicalAddress,DestinationAddress,SpecialInstructions,AdditionalAttachments,CertifyingOfficer,FirstCertifyingOfficer,SecondCertifyingOfficer,EstimatedCost</editableFields>
+      <order>1</order>
+      <actions>
+        <action>
+          <name>SEND_FOR_APPROVAL_DU</name>
+          <displayName>Send to Supervisor for Approval</displayName>
+          <targetStatus>PENDING_APPROVAL</targetStatus>
+          <visible>In(field(Office), parameter(PrecertifiedRequestsDepartments))</visible>
+          <sendEmailNotification>MAIL_TO_SUPERVISOR</sendEmailNotification>
+          <confirmationText>Send request to (field(Supervisor)) for approval ?</confirmationText>
+          <historyText>Sent for approval to (field(Supervisor))</historyText>
+        </action>
+      </actions>
+    </status>
+    <status>
+      <name>NEW</name>
+      <displayName>New Request</displayName>
+      <userAssigned>field(createdBy)</userAssigned>
+      <order>0</order>
+      <requiredFields>Sender,Office,Supervisor,AccountToCharge,FirstAccountToCharge,SecondAccountToCharge,PercentageFromChargeToFirstAccount,Content,PackageType,TotalWeight,PreferredModeOfDispatch,PhysicalAddress,DestinationAddress,Priority,EstimatedCost</requiredFields>
+      <hiddenFields>FinalEstimatedCost,AllCost,InvoiceNumber,AirBillNumber</hiddenFields>
+      <editableFields>Sender,Office,Supervisor,ObligationDocumentId,AccountToCharge,FirstAccountToCharge,SecondAccountToCharge,PercentageFromChargeToFirstAccount,Content,PackageType,NumberOfItems,TotalWeight,PreferredModeOfDispatch,PhysicalAddress,DestinationAddress,Priority,SpecialInstructions,AdditionalAttachments,CertifyingOfficer,FirstCertifyingOfficer,SecondCertifyingOfficer,EstimatedCost,DistributionUnitAssistant</editableFields>
+      <actions>
+        <action>
+          <name>USE_ONE_ACCOUNT</name>
+          <displayName>Use One Account</displayName>
+          <targetStatus>NEW</targetStatus>
+          <visible>field(UseTwoAccounts) == 'true'</visible>
+          <cancelStatusChange>true</cancelStatusChange>
+          <jsFunction>setFieldValues([{ "target": "UseTwoAccounts", "value": "false" }])</jsFunction>
+          <confirmationText>Confirmation: This shipment will be charged from one account. Continue ?</confirmationText>
+        </action>
+        <action>
+          <name>USE_TWO_ACCOUNTS</name>
+          <displayName>Use Two Accounts</displayName>
+          <targetStatus>NEW</targetStatus>
+          <visible>field(UseTwoAccounts) != 'true'</visible>
+          <jsFunction>setFieldValues([{ "target": "UseTwoAccounts", "value": "true" }])</jsFunction>
+          <cancelStatusChange>true</cancelStatusChange>
+          <confirmationText>Confirmation: This shipment will be charged from two accounts. Continue ?</confirmationText>
+        </action>
+        <action>
+          <name>MARK_FOR_DELETION</name>
+          <displayName>Mark for Deletion</displayName>
+          <targetStatus>MARKED_FOR_DELETION</targetStatus>
+          <visible>field(formRequestId) != ''</visible>
+          <commentRequired>true</commentRequired>
+          <confirmationText>Mark this request for deletion ?</confirmationText>
+          <historyText>Marked for deletion by field(currentUser)</historyText>
+        </action>
+        <action>
+          <name>SEND_FOR_APPROVAL</name>
+          <displayName>Send to Supervisor for Approval</displayName>
+          <targetStatus>PENDING_APPROVAL</targetStatus>
+          <sendEmailNotification>MAIL_TO_SUPERVISOR</sendEmailNotification>
+          <visible>NotIn(field(Office), parameter(OwnAccountsDepartments)) #and# NotIn(field(Office), parameter(PrecertifiedRequestsDepartments))</visible>
+          <confirmationText>Send request to (field(Supervisor)) for approval ?</confirmationText>
+          <historyText>Sent for approval to (field(Supervisor))</historyText>
+        </action>
+        <action>
+          <name>SEND_FOR_APPROVAL_FIXED_AC</name>
+          <displayName>Send to Supervisor for Approval</displayName>
+          <targetStatus>PENDING_APPROVAL_FIXED_AC</targetStatus>
+          <sendEmailNotification>MAIL_TO_SUPERVISOR</sendEmailNotification>
+          <visible>In(field(Office), parameter(OwnAccountsDepartments))</visible>
+          <confirmationText>Send request to (field(Supervisor)) for approval ?</confirmationText>
+          <historyText>Sent for approval to (field(Supervisor))</historyText>
+        </action>
+        <action>
+          <name>ADD_PACKAGE_DETAILS</name>
+          <displayName>Request Details</displayName>
+          <targetStatus>PENDING_DU_DETAILS</targetStatus>
+          <sendEmailNotification>MAIL_TO_DU_ASSISTANT</sendEmailNotification>
+          <visible>In(field(Office), parameter(PrecertifiedRequestsDepartments))</visible>
+          <requiredFields>DistributionUnitAssistant</requiredFields>
+          <confirmationText>Send document for addition of weight and cost details ?</confirmationText>
+          <historyText>Sent for additional details by field(currentUser)</historyText>
+        </action>
+      </actions>
+    </status>
+  </statuses>
+  <emailNotificationTemplates>
+    <emailNotificationTemplate>
+      <templateId>MAIL_TO_SUPERVISOR</templateId>
+      <recipient>field(Supervisor)</recipient>
+      <subject>Dear field(Supervisor)</subject>
+      <body>
+        <![CDATA[
+          Please review and approve the following shipment authorization request.
+
+          Link        : Link()
+          Time Stamp  : DateTime()
+
+          Regards,
+
+          User().
+        ]]>
+      </body>
+    </emailNotificationTemplate>
+    <emailNotificationTemplate>
+      <templateId>MAIL_TO_DU_ASSISTANT</templateId>
+      <recipient>emailField(DistributionUnitAssistant)</recipient>
+      <subject>Shipment Authorization : Request for Additional Details (field(Reference))</subject>
+      <body>
+        <![CDATA[
+          Dear field(DistributionUnitAssistant),
+
+          Please add the required details for the following shipment authorization request.
+
+          Time Stamp    : DateTime()
+          Link          : Link()
+
+          Regards,
+
+          field(currentUser).
+        ]]>
+      </body>
+    </emailNotificationTemplate>
+    <emailNotificationTemplate>
+      <templateId>MAIL_TO_RRU_FOR_DISPATCH</templateId>
+      <recipient>emailRole(SharedInboxUsers)</recipient>
+      <subject>Shipment Authorization : For Dispatch (field(Reference))</subject>
+      <body>
+        <![CDATA[
+          All,
+
+          Please note that the following package authorization has been sent to RRU. Dispatch has been authorized, and the request does not need certification.
+
+          OBMO         : field(ObligationDocumentId)
+          Time Stamp   : DateTime()
+          Link         : Link()
+
+          Regards,
+
+          field(currentUser).
+        ]]>
+      </body>
+    </emailNotificationTemplate>
+    <emailNotificationTemplate>
+      <templateId>MAIL_TO_CREATOR_ON_APPROVAL</templateId>
+      <recipient>field(createdByEmail)</recipient>
+      <subject>Shipment Authorization : Approval Notification. (field(Reference))</subject>
+      <body>
+        <![CDATA[
+          Dear field(createdBy),
+
+          Your request for shipment authorization has been approved and forwarded to RRU for processing. Kindly deliver the items to the RRU mail room.
+          Packages should be packed, properly addressed and marked with the authorization reference code for speedy processing. Please note that the OBMO and BAC will be forwarded to the respective Certifying Officer for certification before packages are dispatched.
+
+          Time Stamp   : DateTime()
+          Link         : Link()
+
+          Regards,
+
+          field(currentUser)
+        ]]>
+      </body>
+    </emailNotificationTemplate>
+    <emailNotificationTemplate>
+      <templateId>MAIL_TO_RRU_ON_APPROVAL</templateId>
+      <recipient>emailRole(SharedInboxUsers)</recipient>
+      <subject>Shipment Authorization : New Request (field(Reference))</subject>
+      <body>
+        <![CDATA[
+          All,
+
+          Please note that the following request for shipment authorization has been approved and forwarded to the RRU Inbox.
+
+          Time Stamp   : DateTime()
+          Link         : Link()
+
+          Regards,
+
+          field(currentUser)
+        ]]>
+      </body>
+    </emailNotificationTemplate>
+    <emailNotificationTemplate>
+      <templateId>MAIL_TO_DPPO</templateId>
+      <recipient>emailRole(DPPOAdministrativeAssistant)</recipient>
+      <subject>Shipment Authorization : Sent to DPPO (field(Reference))</subject>
+      <body>
+        <![CDATA[
+          Kindly process the following request for shipment authorization. 
+
+          Time Stamp   : DateTime()
+          Link         : Link()
+          
+          Regards,
+
+          field(currentUser).
+        ]]>
+      </body>
+    </emailNotificationTemplate>
+    <emailNotificationTemplate>
+      <templateId>MAIL_TO_RRU_ON_APPROVAL_FOR_INFO</templateId>
+      <recipient>emailRole(SharedInboxUsers)</recipient>
+      <subject>Shipment Authorization : New Request (field(Reference))</subject>
+      <body>
+        <![CDATA[
+          All,
+
+          Please note that the following request for shipment authorization has been approved and forwarded to DPPO for certification.
+
+          Time Stamp   : DateTime()
+          Link         : Link()
+
+          Regards,
+
+          field(currentUser).
+        ]]>
+      </body>
+    </emailNotificationTemplate>
+    <emailNotificationTemplate>
+      <templateId>MAIL_ON_PULL_BACK</templateId>
+      <recipient>field(Supervisor)</recipient>
+      <subject>Shipment Authorization : field(Reference)</subject>
+      <body>
+        <![CDATA[
+          The following request has been taken out of the supervisor's inbox and sent back to the staff member. This is because the supervisor was unavailable. The requestor can now select an alternate supervisor and send the document for approval.
+
+          Remarks    : Comments()
+          Link       : Link()
+
+          Regards,
+
+          field(currentUser).
+        ]]>
+      </body>
+    </emailNotificationTemplate>
+    <emailNotificationTemplate>
+      <templateId>MAIL_TO_REQUESTOR_FOR_REVISION</templateId>
+      <recipient>field(createdBy)</recipient>
+      <subject>Shipment Authorization : Sent back for Revision (field(Reference))</subject>
+      <body>
+        <![CDATA[
+          Dear field(createdBy),
+
+          This following request for shipment authorization has been sent back to you for revision. 
+
+          Remarks    : Comments()
+          Datestamp  : DateTime()
+          Link       : Link()
+
+
+          Regards,
+
+          field(currentUser).
+        ]]>
+      </body>
+    </emailNotificationTemplate>
+    <emailNotificationTemplate>
+      <templateId>MAIL_TO_CERTIFYING_OFFICER</templateId>
+      <recipient>field(CertifyingOfficer,FirstCertifyingOfficer)</recipient>
+      <subject>Shipment Authorization : Request for Certification (field(Reference))</subject>
+      <body>
+        <![CDATA[
+          Dear field(CertifyingOfficer,FirstCertifyingOfficer),
+
+          Please certify the following shipment authorization request.
+
+          Est. Amount(USD)  : field(EstimatedCost)
+          Time Stamp        : DateTime()
+          Link              : Link()
+
+          Regards,
+
+          field(currentUser).
+        ]]>
+      </body>
+    </emailNotificationTemplate>
+    <emailNotificationTemplate>
+      <templateId>MAIL_TO_CREATOR_PENDING_DPPO</templateId>
+      <recipient>field(createdBy)</recipient>
+      <subject>Shipment Authorization : Sent to DPPO. (field(Reference))</subject>
+      <body>
+        <![CDATA[
+          Dear field(createdBy),
+
+          Your request for shipment authorization has been reviewed by RRU and sent to DPPO for certification. Once certified, the package can then be dispatched.
+
+          Time Stamp   : DateTime()
+          Link         : Link()
+
+          Regards,
+
+          field(currentUser)
+        ]]>
+      </body>
+    </emailNotificationTemplate>
+    <emailNotificationTemplate>
+      <templateId>MAIL_TO_RRU_ON_CERTIFICATION</templateId>
+      <recipient>emailRole(SharedInboxUsers)</recipient>
+      <subject>Shipment Authorization : Certified (field(Reference))</subject>
+      <body>
+        <![CDATA[
+          All,
+
+          Please note that the following package authorization has been certified.
+
+          Time Stamp   : DateTime()
+          Link         : Link()
+
+          Regards,
+
+          field(currentUser)
+        ]]>
+      </body>
+    </emailNotificationTemplate>
+    <emailNotificationTemplate>
+      <templateId>MAIL_TO_2ND_CERTIFYING_OFFICER</templateId>
+      <recipient>emailField(SecondCertifyingOfficer)</recipient>
+      <subject>Shipment Authorization : For 2nd Certification (field(SecondCertifyingOfficer))</subject>
+      <body>
+        <![CDATA[
+          Dear field(SecondCertifyingOfficer),
+
+          Please note that the first account on this request has been certified. Kindly certify the second.
+
+          Time Stamp        : DateTime()
+          Link              : Link()
+
+          Regards,
+
+          field(currentUser)
+        ]]>
+      </body>
+    </emailNotificationTemplate>
+    <emailNotificationTemplate>
+      <templateId>MAIL_TO_DPPO_ON_DELAY</templateId>
+      <recipient>emailRole(DPPOAdministrativeAssistant)</recipient>
+      <subject>Shipment Authorization : Follow up (field(Reference))</subject>
+      <body>
+        <![CDATA[
+          The following request for shipment authorization has been sent to DPPO, but has not yet been certified. Please request the certifier to process it as soon as possible.
+
+          Time Stamp   : DateTime()
+          Link         : Link()
+
+          Regards,
+
+          field(currentUser)
+        ]]>
+      </body>
+    </emailNotificationTemplate>
+    <emailNotificationTemplate>
+      <templateId>MAIL_TO_CREATOR_ON_DECLINE</templateId>
+      <recipient>emailField(createdBy)</recipient>
+      <subject>Shipment Authorization : Declined (field(Reference))</subject>
+      <body>
+        <![CDATA[
+          Dear field(Reference),
+
+          Please note that your request for shipment has been declined.
+
+          Remarks      : Comments()
+          Link         : Link()
+
+          Regards,
+
+          field(currentUser)
+        ]]>
+      </body>
+    </emailNotificationTemplate>
+    <emailNotificationTemplate>
+      <templateId>MAIL_TO_CREATOR_ON_DISPATCH</templateId>
+      <recipient>emailField(createdBy)</recipient>
+      <subject>Shipment Authorization : Dispatch Notification. (field(Reference))</subject>
+      <body>
+        <![CDATA[
+          Dear emailField(createdBy),
+
+          Please note that your package has been dispatched.
+
+          Link         : Link()
+
+          Regards,
+
+          field(currentUser)
+        ]]>
+      </body>
+    </emailNotificationTemplate>
+  </emailNotificationTemplates>
+  <roles>
+    <role>
+      <id>SharedInboxUsers</id>
+      <name>Shared Inbox Users</name>
+      <users>
+        <user>
+          <name>Robinson Aravena</name>
+          <email>robinson.aravena@asdasd.org</email>
+        </user>
+      </users>
+    </role>
+    <role>
+      <id>Assignees</id>
+      <name>Assignees</name>
+      <users>
+        <user>
+          <name>Robinson Aravena</name>
+          <email>robinson.aravena@asdasd.org</email>
+        </user>
+      </users>
+    </role>
+    <role>
+      <id>Certifiers</id>
+      <name>Certifiers</name>
+      <usedForModalTable>true</usedForModalTable>
+      <title>Keywords</title>
+      <users>
+        <user>
+          <name>Robinson Aravena</name>
+          <email>robinson.aravena@asdasd.org</email>
+        </user>
+      </users>
+    </role>
+    <role>
+      <id>FinanceUsers</id>
+      <name>Finance Users</name>
+      <users>
+        <user>
+          <name>Robinson Aravena</name>
+          <email>robinson.aravena@asdasd.org</email>
+        </user>
+      </users>
+    </role>
+    <role>
+      <id>DistributionUnitAssistants</id>
+      <name>Distribution Unit Assistants</name>
+      <usedForModalTable>true</usedForModalTable>
+      <title>Keywords</title>
+      <users>
+        <user>
+          <name>Robinson Aravena</name>
+          <email>robinson.aravena@asdasd.org</email>
+        </user>
+      </users>
+    </role>
+    <role>
+      <id>DPPOAdministrativeAssistant</id>
+      <name>DPPO Administrative Assistant</name>
+      <users>
+        <user>
+          <name>Robinson Aravena</name>
+          <email>robinson.aravena@asdasd.org</email>
+        </user>
+      </users>
+    </role>
+    <role>
+      <id>ILPESFocalPoint</id>
+      <name>ILPES Focal Point</name>
+      <users>
+        <user>
+          <name>Robinson Aravena</name>
+          <email>robinson.aravena@asdasd.org</email>
+        </user>
+      </users>
+    </role>
+  </roles>
+  <views>
+    <group>
+      <title>User()</title>
+      <view>
+        <viewId>1</viewId>
+        <name>Inbox</name>
+        <groupBy>status</groupBy>
+        <filter>field(statusId) != "DISPATCHED" #and# field(statusId) != "MARKED_FOR_DELETION" #and# field(statusId) != "DECLINED"</filter>
+        <columns>
+          <column>
+            <name>Date</name>
+            <controlId>createdDate</controlId>
+          </column>
+          <column>
+            <name>Reference</name>
+            <controlId>Reference</controlId>
+          </column>
+          <column>
+            <name>Office</name>
+            <controlId>Office</controlId>
+          </column>
+          <column>
+            <name>US$ Estimated Cost</name>
+            <controlId>EstimatedCost</controlId>
+          </column>
+        </columns>
+      </view>
+      <view>
+        <viewId>2</viewId>
+        <name>My Documents</name>
+        <groupBy>status</groupBy>
+        <columns>
+          <column>
+            <name>Date</name>
+            <controlId>createdDate</controlId>
+          </column>
+          <column>
+            <name>Reference</name>
+            <controlId>Reference</controlId>
+          </column>
+          <column>
+            <name>Office</name>
+            <controlId>Office</controlId>
+          </column>
+          <column>
+            <name>US$ Estimated Cost</name>
+            <controlId>EstimatedCost</controlId>
+          </column>
+        </columns>
+      </view>
+      <view>
+        <viewId>3</viewId>
+        <name>RRU Inbox</name>
+        <filter>field(statusId) != "SENT_TO_RRU"</filter>
+        <visible>In(User(), role(SharedInboxUsers))</visible>
+        <columns>
+          <column>
+            <name>Date</name>
+            <controlId>createdDate</controlId>
+          </column>
+          <column>
+            <name>Reference</name>
+            <controlId>Reference</controlId>
+          </column>
+          <column>
+            <name>Office</name>
+            <controlId>Office</controlId>
+          </column>
+          <column>
+            <name>Account (BAC)</name>
+            <functionControlId>UseTwoAccounts != "true" ? AccountToCharge : FirstAccountToCharge + " " + SecondAccountToCharge</functionControlId>
+          </column>
+        </columns>
+      </view>
+      <view>
+        <viewId>4</viewId>
+        <name>Dispatch Inbox</name>
+        <filter>field(statusId) == "SENT_TO_RRU_FOR_DISPATCH"</filter>
+        <visible>In(User(), role(SharedInboxUsers))</visible>
+        <columns>
+          <column>
+            <name>Date</name>
+            <controlId>createdDate</controlId>
+          </column>
+          <column>
+            <name>Reference</name>
+            <controlId>Reference</controlId>
+          </column>
+          <column>
+            <name>Office</name>
+            <controlId>Office</controlId>
+          </column>
+          <column>
+            <name>Account (BAC)</name>
+            <functionControlId>UseTwoAccounts != "true" ? AccountToCharge : FirstAccountToCharge + " " + SecondAccountToCharge</functionControlId>
+          </column>
+        </columns>
+      </view>
+      <view>
+        <viewId>5</viewId>
+        <name>DPPO Inbox</name>
+        <filter>field(statusId) == "SENT_TO_DPPO"</filter>
+        <visible>In(User(), role(DPPOAdministrativeAssistant)) #or# In(User(), role(Certifiers))</visible>
+        <columns>
+          <column>
+            <name>Date</name>
+            <controlId>createdDate</controlId>
+          </column>
+          <column>
+            <name>Reference</name>
+            <controlId>Reference</controlId>
+          </column>
+          <column>
+            <name>Office</name>
+            <controlId>Office</controlId>
+          </column>
+          <column>
+            <name>Account (BAC)</name>
+            <functionControlId>UseTwoAccounts != "true" ? AccountToCharge : FirstAccountToCharge + " " + SecondAccountToCharge</functionControlId>
+          </column>
+        </columns>
+      </view>
+    </group>
+    <group>
+      <title>Authorizations</title>
+      <visible>In(User(), role(SharedInboxUsers)) #or# In(User(), role(DPPOAdministrativeAssistant)) #or# In(User(), role(Certifiers))</visible>
+      <view>
+        <viewId>6</viewId>
+        <name>By Reference Number</name>
+        <orderBy>Reference</orderBy>
+        <columns>
+          <column>
+            <name>Date</name>
+            <controlId>createdDate</controlId>
+          </column>
+          <column>
+            <name>Reference</name>
+            <controlId>Reference</controlId>
+          </column>
+          <column>
+            <name>Office</name>
+            <controlId>Office</controlId>
+          </column>
+          <column>
+            <name>US$ Estimated Cost</name>
+            <controlId>EstimatedCost</controlId>
+          </column>
+        </columns>
+      </view>
+      <view>
+        <viewId>7</viewId>
+        <name>By Status</name>
+        <groupBy>status</groupBy>
+        <columns>
+          <column>
+            <name>Date</name>
+            <controlId>createdDate</controlId>
+          </column>
+          <column>
+            <name>Reference</name>
+            <controlId>Reference</controlId>
+          </column>
+          <column>
+            <name>Office</name>
+            <controlId>Office</controlId>
+          </column>
+          <column>
+            <name>US$ Estimated Cost</name>
+            <controlId>EstimatedCost</controlId>
+          </column>
+        </columns>
+      </view>
+      <view>
+        <viewId>8</viewId>
+        <name>By Date</name>
+        <groupBy>DateList:createdDate</groupBy>
+        <columns>
+          <column>
+            <name>Date</name>
+            <controlId>createdDate</controlId>
+          </column>
+          <column>
+            <name>Reference</name>
+            <controlId>Reference</controlId>
+          </column>
+          <column>
+            <name>Office</name>
+            <controlId>Office</controlId>
+          </column>
+          <column>
+            <name>US$ Estimated Cost</name>
+            <controlId>EstimatedCost</controlId>
+          </column>
+        </columns>
+      </view>
+      <view>
+        <viewId>9</viewId>
+        <name>By Office</name>
+        <groupBy>Office</groupBy>
+        <columns>
+          <column>
+            <name>Date</name>
+            <controlId>createdDate</controlId>
+          </column>
+          <column>
+            <name>Reference</name>
+            <controlId>Reference</controlId>
+          </column>
+          <column>
+            <name>Office</name>
+            <controlId>Office</controlId>
+          </column>
+          <column>
+            <name>US$ Estimated Cost</name>
+            <controlId>EstimatedCost</controlId>
+          </column>
+        </columns>
+      </view>
+      <view>
+        <viewId>10</viewId>
+        <name>By Content Type</name>
+        <groupBy>Content</groupBy>
+        <columns>
+          <column>
+            <name>Date</name>
+            <controlId>createdDate</controlId>
+          </column>
+          <column>
+            <name>Reference</name>
+            <controlId>Reference</controlId>
+          </column>
+          <column>
+            <name>Office</name>
+            <controlId>Office</controlId>
+          </column>
+          <column>
+            <name>US$ Estimated Cost</name>
+            <controlId>EstimatedCost</controlId>
+          </column>
+        </columns>
+      </view>
+      <view>
+        <viewId>11</viewId>
+        <name>By Dispatch Type</name>
+        <groupBy>PreferredModeOfDispatch</groupBy>
+        <columns>
+          <column>
+            <name>Date</name>
+            <controlId>createdDate</controlId>
+          </column>
+          <column>
+            <name>Reference</name>
+            <controlId>Reference</controlId>
+          </column>
+          <column>
+            <name>Office</name>
+            <controlId>Office</controlId>
+          </column>
+          <column>
+            <name>US$ Estimated Cost</name>
+            <controlId>EstimatedCost</controlId>
+          </column>
+        </columns>
+      </view>
+      <view>
+        <viewId>12</viewId>
+        <name>By Creator</name>
+        <groupBy>createdBy</groupBy>
+        <listAllRequests>true</listAllRequests>
+        <columns>
+          <column>
+            <name>Date</name>
+            <controlId>createdDate</controlId>
+          </column>
+          <column>
+            <name>Reference</name>
+            <controlId>Reference</controlId>
+          </column>
+          <column>
+            <name>Office</name>
+            <controlId>Office</controlId>
+          </column>
+          <column>
+            <name>US$ Estimated Cost</name>
+            <controlId>EstimatedCost</controlId>
+          </column>
+        </columns>
+      </view>
+      <view>
+        <viewId>13</viewId>
+        <name>Dispatch Summary</name>
+        <groupBy>Office</groupBy>
+        <listAllRequests>true</listAllRequests>
+        <filter>field(statusId) != "DISPATCHED"</filter>
+        <columns>
+          <column>
+            <name>Date</name>
+            <controlId>createdDate</controlId>
+          </column>
+          <column>
+            <name>Reference</name>
+            <controlId>Reference</controlId>
+          </column>
+          <column>
+            <name>US$ Estimated Cost</name>
+            <controlId>EstimatedCost</controlId>
+          </column>
+          <column>
+            <name>US$ Actual Cost</name>
+            <controlId>AllCost</controlId>
+          </column>
+        </columns>
+      </view>
+    </group>
+  </views>
+</body>

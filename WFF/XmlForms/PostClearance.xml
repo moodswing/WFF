@@ -1,0 +1,1664 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<body>
+  <title>Post Clearance</title>
+  <headerTitle>Request for Clearance</headerTitle>
+  <headerSubTitle>for Post Establishment/Circulation</headerSubTitle>
+  <idForm>4</idForm>
+  <referenceCode>ESC</referenceCode>
+  <initialInput>
+    <status></status>
+    <statusId></statusId>
+    <formRequestId></formRequestId>
+    <createdBy></createdBy>
+    <createdByEmail></createdByEmail>
+    <createdDate></createdDate>
+    <currentUser></currentUser>
+    <currentUserEmail></currentUserEmail>
+    <userAssigned></userAssigned>
+  </initialInput>
+  <pages>
+    <page>
+      <id>1</id>
+      <label>Request Details</label>
+    </page>
+    <page>
+      <id>2</id>
+      <label>DPPO</label>
+    </page>
+    <page>
+      <id>3</id>
+      <label>Office of the Executive Secretary</label>
+    </page>
+    <page>
+      <id>4</id>
+      <label>HR Section</label>
+    </page>
+    <page>
+      <id>History</id>
+      <label>History</label>
+    </page>
+  </pages>
+  <fields>
+    <!--invalid characters for field controlId: ":" -->
+    <field>
+      <controlId>Reference</controlId>
+      <label>Reference</label>
+      <type>label</type>
+      <page>1</page>
+      <columnSize>half</columnSize>
+      <value></value>
+    </field>
+    <field>
+      <controlId>RequestType</controlId>
+      <label>Request Type</label>
+      <type>radiobutton</type>
+      <dataSource>requestType</dataSource>
+      <page>1</page>
+      <columnSize>half</columnSize>
+      <description>Note: Stablishment only for XB posts.</description>
+    </field>
+    <field>
+      <controlId>DivisionDirector</controlId>
+      <label>Division Director</label>
+      <type>selectUser</type>
+      <page>1</page>
+      <columnSize>half</columnSize>
+    </field>
+    <field>
+      <controlId>RequestToCirculate</controlId>
+      <label>Request to Circulate</label>
+      <dataSource>CirculationOf</dataSource>
+      <type>radiobutton</type>
+      <page>1</page>
+      <columnSize>half</columnSize>
+      <description>JO = Job Opening \n TJO = Temporary Job Opening</description>
+    </field>
+    <field>
+      <controlId>SectionUnitChief</controlId>
+      <label>Section/Unit Chief</label>
+      <type>selectUser</type>
+      <page>1</page>
+      <columnSize>full</columnSize>
+      <description>(Optional)</description>
+    </field>
+    <field>
+      <controlId>DivisionName</controlId>
+      <label>Division Name</label>
+      <dataSource>DivisionName</dataSource>
+      <type>modalTable</type>
+      <page>1</page>
+      <columnSize>half</columnSize>
+    </field>
+    <field>
+      <controlId>PostIMISNumber</controlId>
+      <label>Post IMIS Number</label>
+      <type>textbox</type>
+      <page>1</page>
+      <columnSize>half</columnSize>
+      <description>(Type 'N/A' if not available)</description>
+    </field>
+    <field>
+      <controlId>Section</controlId>
+      <label>Section</label>
+      <dataSource>SectionList</dataSource>
+      <type>modalTable</type>
+      <page>1</page>
+      <columnSize>half</columnSize>
+    </field>
+    <field>
+      <controlId>FunctionalTitle</controlId>
+      <label>Functional Title</label>
+      <type>textbox</type>
+      <page>1</page>
+      <columnSize>half</columnSize>
+    </field>
+    <field>
+      <controlId>OrgUnit</controlId>
+      <label>Org Unit</label>
+      <type>textbox</type>
+      <page>1</page>
+      <columnSize>half</columnSize>
+    </field>
+    <field>
+      <controlId>CategoryGrade</controlId>
+      <label>Category/Grade</label>
+      <type>modalTable</type>
+      <dataSource>CategoryGrade</dataSource>
+      <page>1</page>
+      <columnSize>half</columnSize>
+    </field>
+    <field>
+      <controlId>JobCode</controlId>
+      <label>Job Code</label>
+      <type>modalTable</type>
+      <dataSource>JobCode</dataSource>
+      <page>1</page>
+      <columnSize>full</columnSize>
+      <warning>
+        Please select the <u>Job Code</u> that best fits the job description or generic job profile that you are using for this position. Please remember that the Job Code you select, will affect the associated rosters which will only be pulled from the same Job Family/Grade, and it will also affect the Functional Job Title which will eventually be assigned to the selected candidate in their Letter of Appointment and in the Staff List
+      </warning>
+    </field>
+    <field>
+      <controlId>CurrentIncumbent</controlId>
+      <label>Current Incumbent</label>
+      <type>textbox</type>
+      <page>1</page>
+      <columnSize>half</columnSize>
+      <description>(If any)</description>
+    </field>
+    <field>
+      <controlId>ReasonForTheStablishment</controlId>
+      <label>Reason for the stablishment and/or circulation</label>
+      <type>modalTable</type>
+      <dataSource>ReasonForTheStablishment</dataSource>
+      <page>1</page>
+      <columnSize>half</columnSize>
+    </field>
+    <field>
+      <controlId>JOCirculationMethod</controlId>
+      <label>JO Circulation Method</label>
+      <type>label</type>
+      <page>1</page>
+      <columnSize>half</columnSize>
+      <value>Internal and External</value>
+    </field>
+    <field>
+      <controlId>PostFundingDirection</controlId>
+      <label>Post Funding Direction</label>
+      <type>label</type>
+      <page>1</page>
+      <columnSize>half</columnSize>
+      <value>One Year and More</value>
+    </field>
+    <field>
+      <controlId>TJODuration</controlId>
+      <label>TJO Duration</label>
+      <dataSource>TVAType</dataSource>
+      <type>radiobutton</type>
+      <page>1</page>
+      <columnSize>half</columnSize>
+      <value>Internal and External</value>
+    </field>
+    <field>
+      <controlId>TemporaryStartDate</controlId>
+      <label>Temporary Start Date</label>
+      <type>date</type>
+      <page>1</page>
+      <columnSize>half</columnSize>
+    </field>
+    <field>
+      <controlId>TJOCirculationMethod</controlId>
+      <label>TJO Circulation Method</label>
+      <dataSource>TJOCirculationMethod</dataSource>
+      <type>modalTable</type>
+      <page>1</page>
+      <columnSize>half</columnSize>
+      <value>Internal and External</value>
+    </field>
+    <field>
+      <controlId>TemporaryEndDate</controlId>
+      <label>Temporary End Date</label>
+      <type>date</type>
+      <page>1</page>
+      <columnSize>half</columnSize>
+    </field>
+    <field>
+      <controlId>JobDescription</controlId>
+      <label>Job Description (JD)</label>
+      <type>files</type>
+      <page>1</page>
+      <columnSize>half</columnSize>
+      <description>If JD does not exist, please describe briefly the functions of the post on a Word document, for association to a Generic Job Profile, or fill in a full JD form. JD forms can be obtained by clicking on 'More info' above.</description>
+    </field>
+    <field>
+      <controlId>DivisionOrganizationalChart</controlId>
+      <label>Latest Division Organizational Chart</label>
+      <type>files</type>
+      <page>1</page>
+      <columnSize>half</columnSize>
+      <description>Please see sample chart by clicking on 'More info' above.</description>
+    </field>
+    <field>
+      <controlId>StrategicOutputs</controlId>
+      <label>Expected strategic outputs and correlation with the programme of work and regular budget posts</label>
+      <type>textbox</type>
+      <page>1</page>
+      <columnSize>full</columnSize>
+    </field>
+    <field>
+      <controlId>FundingProposal</controlId>
+      <label>Funding Proposal</label>
+      <type>textbox</type>
+      <page>1</page>
+      <columnSize>full</columnSize>
+    </field>
+    <field>
+      <controlId>SourceOfFunding</controlId>
+      <label>Source of Funding</label>
+      <dataSource>SourceOfFunding</dataSource>
+      <type>checkbox</type>
+      <page>1</page>
+      <columnSize>full</columnSize>
+    </field>
+    <field>
+      <controlId>Accounts</controlId>
+      <label></label>
+      <type>customList</type>
+      <page>2</page>
+      <columnSize>full</columnSize>
+      <addLabel>Add Fund</addLabel>
+      <details>
+        <field>
+          <controlId>BAC</controlId>
+          <label>BAC</label>
+          <type>textbox</type>
+        </field>
+        <field>
+          <controlId>PostBIS</controlId>
+          <label>Post BIS</label>
+          <type>textbox</type>
+        </field>
+        <field>
+          <controlId>Duration</controlId>
+          <label>Duration</label>
+          <type>textbox</type>
+        </field>
+      </details>
+    </field>
+    <field>
+      <controlId>StrategicDirection</controlId>
+      <label>The functions of above post are aligned with the agreed strategic direction of ASDD or with the original project objective</label>
+      <columnSize>full</columnSize>
+      <halfRowLabel>true</halfRowLabel>
+      <type>radiobutton</type>
+      <dataSource>YesNo</dataSource>
+      <page>2</page>
+    </field>
+    <field>
+      <controlId>FinancialResources</controlId>
+      <label>Financial resources are available.</label>
+      <columnSize>full</columnSize>
+      <halfRowLabel>true</halfRowLabel>
+      <type>radiobutton</type>
+      <dataSource>YesNo</dataSource>
+      <page>2</page>
+    </field>
+    <field>
+      <controlId>BudgetGradeLevel</controlId>
+      <label>Budget Grade Level</label>
+      <type>modalTable</type>
+      <dataSource>CategoryGrade</dataSource>
+      <page>2</page>
+      <columnSize>half</columnSize>
+    </field>
+    <field>
+      <controlId>DPPOChief</controlId>
+      <label>DPPO Chief</label>
+      <type>rolesModalTable</type>
+      <dataSource>DPPOChief</dataSource>
+      <page>2</page>
+      <columnSize>half</columnSize>
+    </field>
+    <field>
+      <controlId>DPPOAdmAst</controlId>
+      <label>DPPO Admin Assistant</label>
+      <type>label</type>
+      <page>2</page>
+      <columnSize>half</columnSize>
+      <dataOrigin>initialInput</dataOrigin>
+      <value>createdBy</value>
+    </field>
+    <field>
+      <controlId>BudgetOfficer</controlId>
+      <label>Budget Officer</label>
+      <type>label</type>
+      <page>2</page>
+      <columnSize>half</columnSize>
+      <dataOrigin>initialInput</dataOrigin>
+      <value>createdBy</value>
+    </field>
+    <field>
+      <controlId>HRChief</controlId>
+      <label>HR Chief</label>
+      <type>selectUser</type>
+      <page>4</page>
+      <columnSize>full</columnSize>
+    </field>
+    <field>
+      <controlId>HROfficer</controlId>
+      <label>HR Officer</label>
+      <type>selectUser</type>
+      <page>4</page>
+      <columnSize>full</columnSize>
+    </field>
+  </fields>
+  <parameters>
+    <parameter>
+      <id>requestType</id>
+      <options>
+        <option>
+          <value>Establishment and Circulation</value>
+          <description>Establishment and Circulation</description>
+        </option>
+        <option>
+          <value>Reclassification and Circulation</value>
+          <description>Reclassification and Circulation</description>
+        </option>
+        <option>
+          <value>Circulation Only</value>
+          <description>Circulation Only</description>
+        </option>
+      </options>
+    </parameter>
+    <parameter>
+      <id>CirculationOf</id>
+      <options>
+        <option>
+          <value>JO</value>
+          <description>Job Opening</description>
+          <hideControl>TJODuration,TJOCirculationMethod,TemporaryStartDate,TemporaryEndDate</hideControl>
+          <changeFieldValues>
+            <changeValue>
+              <field>PostFundingDirection</field>
+              <value>One Year and More</value>
+            </changeValue>
+          </changeFieldValues>
+        </option>
+        <option>
+          <value>TJO</value>
+          <description>Temporary Job Opening</description>
+          <hideControl>JOCirculationMethod</hideControl>
+          <changeFieldValues>
+            <changeValue>
+              <field>PostFundingDirection</field>
+              <value>Less than one year</value>
+            </changeValue>
+          </changeFieldValues>
+        </option>
+      </options>
+    </parameter>
+    <parameter>
+      <id>JobCode</id>
+      <type>table</type>
+      <title>Job Code</title>
+      <subtitle>Please select a job code</subtitle>
+      <columns>
+        <column>
+          Job Code
+        </column>
+        <column saveValue="true">
+          Description
+        </column>
+        <column>
+          Job Family
+        </column>
+      </columns>
+      <values>
+        <value>
+          <col>10074</col>
+          <col>Assistant Corrections Officer</col>
+          <col>ROL</col>
+        </value>
+        <value>
+          <col>10076</col>
+          <col>Assistant Disarmament, Demobilization and Reintegration Officer</col>
+          <col>ROL</col>
+        </value>
+        <value>
+          <col>10078</col>
+          <col>Assistant Security Sector Reform Officer</col>
+          <col>ROL</col>
+        </value>
+        <value>
+          <col>10080</col>
+          <col>Assistant Judicial Affairs Officer</col>
+          <col>ROL</col>
+        </value>
+        <value>
+          <col>10082</col>
+          <col>Assistant Rule of Law Officer</col>
+          <col>ROL</col>
+        </value>
+        <value>
+          <col>10222</col>
+          <col>ASSISTAN HUMANITARIAN LIAISON OFFICER</col>
+          <col>HRA</col>
+        </value>
+        <value>
+          <col>10289</col>
+          <col>ASSISTANT CIVIL AFFAIRS OFFICER</col>
+          <col>CIV</col>
+        </value>
+        <value>
+          <col>1220</col>
+          <col>ASSISTANT HUMAN RIGHTS OFFICER</col>
+          <col>HRI</col>
+        </value>
+        <value>
+          <col>7222</col>
+          <col>ASSISTANT BENEFITS OFFICER</col>
+          <col>PEN</col>
+        </value>
+        <value>
+          <col>7638</col>
+          <col>Assistant Air Operations Officer</col>
+          <col>LOG</col>
+        </value>
+        <value>
+          <col>7640</col>
+          <col>Assistant Environmental Affaris Officer</col>
+          <col>ENV</col>
+        </value>
+        <value>
+          <col>8260</col>
+          <col>Assistant Statistician</col>
+          <col>STT</col>
+        </value>
+        <value>
+          <col>TMP1</col>
+          <col>TO BE DECIDED</col>
+          <col>(blank)</col>
+        </value>
+      </values>
+    </parameter>
+    <parameter>
+      <id>DivisionName</id>
+      <type>table</type>
+      <title>Division List</title>
+      <subtitle>Please select a division</subtitle>
+      <columns>
+        <column saveValue="true">
+          Name
+        </column>
+        <column>
+          Acronym
+        </column>
+      </columns>
+      <values>
+        <value>
+          <col>Division of Administration</col>
+          <col>( ADM )</col>
+        </value>
+        <value>
+          <col>Population Division - CELADE</col>
+          <col>( CELADE )</col>
+        </value>
+        <value>
+          <col>Division for Gender Affairs</col>
+          <col>( DAG )</col>
+        </value>
+        <value>
+          <col>International Trade and Integration Division</col>
+          <col>( DCII )</col>
+        </value>
+        <value>
+          <col>Economic Development Division</col>
+          <col>( DDE )</col>
+        </value>
+        <value>
+          <col>Publications and Web Services Division</col>
+          <col>( DDP )</col>
+        </value>
+        <value>
+          <col>Division of Production, Productivity and Management</col>
+          <col>( DDPE )</col>
+        </value>
+        <value>
+          <col>Social Development Division</col>
+          <col>( DDS )</col>
+        </value>
+        <value>
+          <col>Sustainable Development and Human Settlements Division</col>
+          <col>( DDSAH )</col>
+        </value>
+        <value>
+          <col>Statistics and Economic Projections Division</col>
+          <col>( DEPE )</col>
+        </value>
+        <value>
+          <col>Programme Planning and Operations Division</col>
+          <col>( DPPO )</col>
+        </value>
+        <value>
+          <col>Natural Resources and Infrastructure Division</col>
+          <col>( DRNI )</col>
+        </value>
+        <value>
+          <col>Financing for Development Division</col>
+          <col>( FDD )</col>
+        </value>
+        <value>
+          <col>Latin Amenican and Canibbean Institute for Economic and Social Planning</col>
+          <col>( ILPES )</col>
+        </value>
+        <value>
+          <col>Office of the Executive Secretary</col>
+          <col>( SE/OF )</col>
+        </value>
+        <value>
+          <col>Office of the Secretary of the Commission</col>
+          <col>( SE/SEC )</col>
+        </value>
+        <value>
+          <col>Bogota</col>
+          <col>(BOGOTA)</col>
+        </value>
+        <value>
+          <col>Brasilia</col>
+          <col>(BRASILIA)</col>
+        </value>
+        <value>
+          <col>Buenos Aires</col>
+          <col>(BUENOS AIRES)</col>
+        </value>
+        <value>
+          <col>Mexico City</col>
+          <col>(MEXICO CITY)</col>
+        </value>
+        <value>
+          <col>Montevideo</col>
+          <col>(MONTEVIDEO)</col>
+        </value>
+        <value>
+          <col>Port of Spain</col>
+          <col>(PORT OF SPAIN)</col>
+        </value>
+        <value>
+          <col>Washington</col>
+          <col>(WASHINGTON)</col>
+        </value>
+        <value>
+          <col>Office of the Deputy Executive Secretary</col>
+          <col></col>
+        </value>
+      </values>
+    </parameter>
+    <parameter>
+      <id>SectionList</id>
+      <type>table</type>
+      <title>Office List</title>
+      <subtitle>Please select an office</subtitle>
+      <columns>
+        <column saveValue="true">
+          Name
+        </column>
+        <column>
+          Acronym
+        </column>
+      </columns>
+      <values>
+        <value>
+          <col>Administration Section - Mexico</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Administration Section - Port of Spain</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Agricultural Development Unit</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Agricultural Unit - Mexico</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Bogota Office</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Brasilia Office</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Buenos Aires Office</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Buildings Management &amp; Maintenance Unit</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Review Unit</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Clinic</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Conference Services Unit</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Demography Area</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Deputy Executive Secretary</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Distribution Unit</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Division for Gender Affairs</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Division of Administration</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Division of Production, Productivity and Management</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Documents and Publications Control Unit</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Documents and Publications Division</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Economic and Social Development - Port of Spain</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Economic Development Division</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Economic Development Unit - Mexico</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Economics of Climate Change Unit</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Editorial and Translation Services Section</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Editorial, Documents and Conference Services Unit - Mexico</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Energy and Natural Resources Unit - Mexico</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Finance Unit - Mexico</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Financial Services Section</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Financing for Development Division</col>
+          <col></col>
+        </value>
+        <value>
+          <col>General Services Section</col>
+          <col></col>
+        </value>
+        <value>
+          <col>General Services Unit - Mexico</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Human Resources Section</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Information and Communications Technology Unit</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Information and Documentation Section - Port of Spain</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Information Communications Technologies Section</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Information Resource Centre and Publications Distribution Unit</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Information Services Unit</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Infrastructure Services Unit</col>
+          <col></col>
+        </value>
+        <value>
+          <col>International Trade and Industry Unit</col>
+          <col></col>
+        </value>
+        <value>
+          <col>International Trade and Integration Division</col>
+          <col></col>
+        </value>
+        <value>
+          <col>International Trade Unit</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Joint ASDAD/ASDD Industrial and Technological Development Unit</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Latin Amenican and Caribbean Institute for Economic and Social Planning</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Library</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Macro-Economic Analysis Unit</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Montevideo Office</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Natural Resources and Energy Unit</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Natural Resources and Infrastructure Division</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Office of the Executive Secretary</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Office of the Ombudsman - Santiago</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Office of the Secretary of the Commission</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Personnel Unit - Mexico</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Policies for Sustainable Development Unit</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Population and Development Area</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Population Division - CELADE</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Printing and Distribution Section</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Printing Unit</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Procurement/Travel Unit</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Programme Planning and Evaluation Unit</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Programme Planning and Operations Division</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Project Management Unit</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Purchase Unit</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Registry and Archives</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Safety and Security Services, Santiago</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Social Development Division</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Social Development Unit - Mexico</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Statistics and Economic Projections Division</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Subregional Headquarters for the Caribbean - Port of Spain</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Subregional Office in Mexico</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Sustainable Development and Human Settlements Division</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Telephone Exchange</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Training and Infomation on Population Area</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Travel, Traffic and Local Transportation Unit</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Unit on Investment and Corporate Strategies</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Washington Office</col>
+          <col></col>
+        </value>
+        <value>
+          <col>Word Processing Unit</col>
+          <col></col>
+        </value>
+      </values>
+    </parameter>
+    <parameter>
+      <id>CategoryGrade</id>
+      <type>table</type>
+      <title>Select Keywords</title>
+      <columns>
+        <column saveValue="true">
+          Keywords
+        </column>
+      </columns>
+      <values>
+        <value>
+          <col>D-1</col>
+        </value>
+        <value>
+          <col>D-2</col>
+        </value>
+        <value>
+          <col>G-2</col>
+        </value>
+        <value>
+          <col>G-3</col>
+        </value>
+        <value>
+          <col>G-4</col>
+        </value>
+        <value>
+          <col>G-5</col>
+        </value>
+        <value>
+          <col>G-6</col>
+        </value>
+        <value>
+          <col>G-7</col>
+        </value>
+        <value>
+          <col>NO-A</col>
+        </value>
+        <value>
+          <col>NO-B</col>
+        </value>
+        <value>
+          <col>NO-C</col>
+        </value>
+        <value>
+          <col>NO-D</col>
+        </value>
+        <value>
+          <col>N/A</col>
+        </value>
+        <value>
+          <col>P-1</col>
+        </value>
+        <value>
+          <col>P-2</col>
+        </value>
+        <value>
+          <col>P-3</col>
+        </value>
+        <value>
+          <col>P-4</col>
+        </value>
+        <value>
+          <col>P-5</col>
+        </value>
+      </values>
+    </parameter>
+    <parameter>
+      <id>TVAType</id>
+      <options>
+        <option>
+          <value>TJO 3 - 6 mth</value>
+          <description>TJO 3 - 6 mth</description>
+        </option>
+        <option>
+          <value>TJO > 6 mth</value>
+          <description>TJO > 6 mth</description>
+        </option>
+      </options>
+    </parameter>
+    <parameter>
+      <id>TJOCirculationMethod</id>
+      <type>table</type>
+      <title>Select Keywords</title>
+      <columns>
+        <column saveValue="true">
+          Keywords
+        </column>
+      </columns>
+      <values>
+        <value>
+          <col>Internal and External</col>
+        </value>
+        <value>
+          <col>Internal Only</col>
+        </value>
+      </values>
+    </parameter>
+    <parameter>
+      <id>SourceOfFunding</id>
+      <options>
+        <option>
+          <value>RB</value>
+          <description>RB</description>
+          <default>true</default>
+        </option>
+        <option>
+          <value>XB</value>
+          <description>XB</description>
+        </option>
+      </options>
+    </parameter>
+    <parameter>
+      <id>ReasonForTheStablishment</id>
+      <type>table</type>
+      <title>Select Keywords</title>
+      <columns>
+        <column saveValue="true">
+          Keywords
+        </column>
+      </columns>
+      <values>
+        <value>
+          <col>New Post</col>
+        </value>
+        <value>
+          <col>Retirement</col>
+        </value>
+        <value>
+          <col>Resignation</col>
+        </value>
+        <value>
+          <col>Transfer of Incumbent</col>
+        </value>
+        <value>
+          <col>Promotion of Incumbent</col>
+        </value>
+        <value>
+          <col>Reclassification</col>
+        </value>
+        <value>
+          <col>Incumbent on Special Leave</col>
+        </value>
+        <value>
+          <col>Other</col>
+        </value>
+      </values>
+    </parameter>
+    <parameter>
+      <id>YesNo</id>
+      <options>
+        <option>
+          <value>Yes</value>
+          <description>Yes</description>
+        </option>
+        <option>
+          <value>No</value>
+          <description>No</description>
+        </option>
+      </options>
+    </parameter>
+  </parameters>
+  <statuses>
+    <status>
+      <name>STA_CANCELLED</name>
+      <displayName>Cancelled</displayName>
+      <userAssigned></userAssigned>
+      <order>12</order>
+    </status>
+    <status>
+      <name>STA_DENIED</name>
+      <displayName>Denied</displayName>
+      <userAssigned></userAssigned>
+      <order>11</order>
+    </status>
+    <status>
+      <name>STA_END</name>
+      <displayName>Cleared</displayName>
+      <userAssigned>postHRAssistant</userAssigned>
+      <order>10</order>
+      <action>
+        <name>PULL_OUT_HRO</name>
+        <displayName>Pull Out Request</displayName>
+        <targetStatus>STA_END</targetStatus>
+        <visible>true</visible>
+      </action>
+    </status>
+    <status>
+      <name>STA_PENDING_HHRROFF</name>
+      <displayName>Sent to HR Officer</displayName>
+      <userAssigned>postHROfficer</userAssigned>
+      <order>9</order>
+      <actions>
+        <action>
+          <name>ACT_COMPLETE_REQUEST</name>
+          <displayName>Initiate Circulation</displayName>
+          <targetStatus>STA_END</targetStatus>
+          <visible>true</visible>
+        </action>
+        <action>
+          <name>PULL_OUT_HRO</name>
+          <displayName>Pull Out Request</displayName>
+          <targetStatus>STA_PENDING_HHRROFF</targetStatus>
+          <visible>true</visible>
+        </action>
+      </actions>
+    </status>
+    <status>
+      <name>STA_PENDING_PROG_OFF</name>
+      <displayName>Sent to OES for Clearance</displayName>
+      <userAssigned>postEOReviewer</userAssigned>
+      <order>8</order>
+      <actions>
+        <action>
+          <name>ACT_APPROVE_SEND_HHRROFFICER</name>
+          <displayName>Approve and Send to HRS</displayName>
+          <targetStatus>STA_PENDING_HHRROFF</targetStatus>
+          <visible>true</visible>
+        </action>
+        <action>
+          <name>ACT_DENY</name>
+          <displayName>Request Denied</displayName>
+          <targetStatus>STA_DENIED</targetStatus>
+          <visible>true</visible>
+        </action>
+        <action>
+          <name>ACT_REQUEST_CLARIFICATION</name>
+          <displayName>Request Clarification</displayName>
+          <targetStatus>STA_PENDING_DIRECTOR</targetStatus>
+          <visible>true</visible>
+        </action>
+      </actions>
+    </status>
+    <status>
+      <name>STA_PENDING_SE</name>
+      <displayName>Sent to OES for Clearance</displayName>
+      <userAssigned>postEOReviewer</userAssigned>
+      <order>7</order>
+      <actions>
+        <action>
+          <name>ACT_PULL_PROGRAMME_OFF</name>
+          <displayName>Pull Out for Processing</displayName>
+          <targetStatus>STA_PENDING_PROG_OFF</targetStatus>
+          <visible>true</visible>
+        </action>
+        <action>
+          <name>ACT_APPROVE_SEND_HHRROFFICER</name>
+          <displayName>Aprove and Send to HRS</displayName>
+          <targetStatus>STA_PENDING_HHRROFF</targetStatus>
+          <visible>true</visible>
+        </action>
+        <action>
+          <name>ACT_DENY</name>
+          <displayName>Request Denied</displayName>
+          <targetStatus>STA_DENIED</targetStatus>
+          <visible>true</visible>
+        </action>
+        <action>
+          <name>ACT_REQUEST_CLARIFICATION</name>
+          <displayName>Request Clarification</displayName>
+          <targetStatus>STA_PENDING_DIRECTOR</targetStatus>
+          <visible>true</visible>
+        </action>
+      </actions>
+    </status>
+    <status>
+      <name>STA_PENDING_DPPO_CHIEF</name>
+      <displayName>Awaiting Review by DPPO Chief</displayName>
+      <userAssigned>postDPPOChief</userAssigned>
+      <order>6</order>
+      <actions>
+        <action>
+          <name>PULL_OUT_DPPO_CHIEF</name>
+          <displayName>Pull Out Request</displayName>
+          <targetStatus>STA_PENDING_DPPO_CHIEF</targetStatus>
+          <visible>true</visible>
+        </action>
+        <action>
+          <name>SEND_BACK_CERTIFIER_FOR_REVISION</name>
+          <displayName>Send Back to Certifier for Revision</displayName>
+          <targetStatus>STA_PENDING_CERTIFICATION</targetStatus>
+          <visible>true</visible>
+        </action>
+        <action>
+          <name>APPROVE_SEND_TO_HRS</name>
+          <displayName>Approve and send to HR Section</displayName>
+          <targetStatus>STA_PENDING_HHRROFF</targetStatus>
+          <visible>true</visible>
+        </action>
+        <action>
+          <name>APPROVE_SEND_TO_OES</name>
+          <displayName>Approve and send to OES</displayName>
+          <targetStatus>STA_PENDING_SE</targetStatus>
+          <visible>true</visible>
+        </action>
+        <action>
+          <name>SEND_BACK_DPPO_TO_DIV_CHIEF_REVISION</name>
+          <displayName>Send Back to Division Chief for Revision</displayName>
+          <targetStatus>STA_PENDING_DIRECTOR</targetStatus>
+          <visible>true</visible>
+        </action>
+      </actions>
+    </status>
+    <status>
+      <name>STA_PENDING_CERTIFICATION</name>
+      <displayName>Awaiting Certification</displayName>
+      <userAssigned>postBudgetOfficer</userAssigned>
+      <order>5</order>
+      <actions>
+        <action>
+          <name>SPLIT_TVA</name>
+          <displayName>Separate TJO from JO</displayName>
+          <targetStatus>STA_PENDING_CERTIFICATION</targetStatus>
+          <visible>true</visible>
+        </action>
+        <action>
+          <name>PULL_OUT_CERTIFIER</name>
+          <displayName>Pull Out Request</displayName>
+          <targetStatus>STA_PENDING_CERTIFICATION</targetStatus>
+          <visible>true</visible>
+        </action>
+        <action>
+          <name>SEND_BACK_TO_DIVISION_FOR_REVISION</name>
+          <displayName>Send Back to Division for Revision</displayName>
+          <targetStatus>STA_REVISION_ADMASSISTANT</targetStatus>
+          <visible>true</visible>
+        </action>
+        <action>
+          <name>CERTIFY_SEND_TO_DPPO CHIEF</name>
+          <displayName>Certify and Send to DPPO Chief</displayName>
+          <targetStatus>STA_PENDING_DPPO_CHIEF</targetStatus>
+          <visible>true</visible>
+        </action>
+      </actions>
+    </status>
+    <status>
+      <name>STA_PENDING_HR_CHIEF</name>
+      <displayName>Pending HR Chief Review or Classification</displayName>
+      <userAssigned>postHRChief</userAssigned>
+      <order>4</order>
+      <actions>
+        <action>
+          <name>PULL_OUT_HR_CHIEF</name>
+          <displayName>Pull Out Request</displayName>
+          <targetStatus>STA_PENDING_HR_CHIEF</targetStatus>
+          <visible>true</visible>
+        </action>
+        <action>
+          <name>SEND_TO_DPPO_HR_CHIEF</name>
+          <displayName>Approve and Send to DPPO</displayName>
+          <targetStatus>STA_PENDING_CERTIFICATION</targetStatus>
+          <visible>true</visible>
+        </action>
+        <action>
+          <name>SEND_BACK_TO_DIVISION_CHIEF_REVISION</name>
+          <displayName>Send Back to Division Chief for Revision</displayName>
+          <targetStatus>STA_PENDING_DIRECTOR</targetStatus>
+          <visible>true</visible>
+        </action>
+      </actions>
+    </status>
+    <status>
+      <name>STA_PENDING_DIRECTOR</name>
+      <displayName>Sent to Division Director for Review</displayName>
+      <userAssigned>field(DivisionDirector)</userAssigned>
+      <order>3</order>
+      <actions>
+        <action>
+          <name>SEND_BACK_TO_CREATOR_FOR_REVISION</name>
+          <displayName>Send Back to Creator for Revision</displayName>
+          <targetStatus>STA_REVISION_ADMASSISTANT</targetStatus>
+          <visible>true</visible>
+        </action>
+        <action>
+          <name>SEND_TO_DPPO</name>
+          <displayName>Approve and Send to DPPO</displayName>
+          <targetStatus>STA_PENDING_CERTIFICATION</targetStatus>
+          <visible>true</visible>
+        </action>
+        <action>
+          <name>RETURN_TO_OES</name>
+          <displayName>Send Back to OES</displayName>
+          <targetStatus>STA_PENDING_SE</targetStatus>
+          <visible>true</visible>
+        </action>
+        <action>
+          <name>SEND_HR_CHIEF</name>
+          <displayName>Approve and Send HR Chief</displayName>
+          <targetStatus>STA_PENDING_HR_CHIEF</targetStatus>
+          <visible>true</visible>
+        </action>
+        <action>
+          <name>SEND_BACK_TO_CREATOR_FOR_REVISION_NOTIFICATION</name>
+          <displayName>Send Back to Creator for Revision</displayName>
+          <targetStatus>STA_REVISION_ADMASSISTANT</targetStatus>
+          <sendEmailNotification>MAIL_TO_REQUESTOR_FOR_REVISION,MAIL_TO_SECTION_CHIEF</sendEmailNotification>
+          <visible>true</visible>
+          <confirmationText>Send back to creator for revision?</confirmationText>
+          <historyText>Request sent back to the creator (field(createdBy))</historyText>
+          <commentRequired>true</commentRequired>
+        </action>
+      </actions>
+    </status>
+    <status>
+      <name>STA_PENDING_CHIEF_SECTION</name>
+      <displayName>Sent to Section Chief for Review</displayName>
+      <userAssigned>field(SectionUnitChief)</userAssigned>
+      <order>2</order>
+      <actions>
+        <action>
+          <name>ACT_SEND_TO_DIVISION_DIRECTOR</name>
+          <displayName>Send to Division Director for Approval</displayName>
+          <targetStatus>STA_PENDING_DIRECTOR</targetStatus>
+          <visible>true</visible>
+        </action>
+        <action>
+          <name>SEND_BACK_TO_CREATOR_FOR_REVISION</name>
+          <displayName>Send Back to Creator for Revision</displayName>
+          <targetStatus>STA_REVISION_ADMASSISTANT</targetStatus>
+          <visible>true</visible>
+        </action>
+        <action>
+          <name>ACT_UNDO</name>
+          <displayName>Return to Previous State</displayName>
+          <targetStatus>STA_NEW</targetStatus>
+          <sendEmailNotification>MAIL_TO_REQUESTOR_FOR_REVISION</sendEmailNotification>
+          <visible>true</visible>
+          <confirmationText>Send back to previous state?</confirmationText>
+          <historyText>Send back to previous state</historyText>
+          <commentRequired>true</commentRequired>
+        </action>
+      </actions>
+    </status>
+    <status>
+      <name>STA_REVISION_ADMASSISTANT</name>
+      <displayName>Sent to Creator for Revision</displayName>
+      <userAssigned>docCreatedBy</userAssigned>
+      <editableFields>Accounts</editableFields>
+      <order>1</order>
+      <actions>
+        <action>
+          <name>CANCEL</name>
+          <displayName>Cancel Request</displayName>
+          <targetStatus>STA_CANCELLED</targetStatus>
+          <visible>true</visible>
+        </action>
+        <action>
+          <name>ACT_SEND_TO_SECTION_CHIEF</name>
+          <displayName>Send to Section Chief for Approval</displayName>
+          <targetStatus>STA_PENDING_CHIEF_SECTION</targetStatus>
+          <visible>true</visible>
+        </action>
+        <action>
+          <name>ACT_SEND_TO_DIVISION_DIRECTOR</name>
+          <displayName>Send to Division Director for Approval</displayName>
+          <targetStatus>STA_PENDING_DIRECTOR</targetStatus>
+          <visible>true</visible>
+        </action>
+      </actions>
+    </status>
+    <status>
+      <name>STA_NEW</name>
+      <order>0</order>
+      <displayName>New Request</displayName>
+      <userAssigned>field(createdBy)</userAssigned>
+      <requiredFields>SourceOfFunding,RequestType,DivisionDirector,RequestToCirculate,PostIMISNumber,DivisionName,FunctionalTitle,CategoryGrade,ReasonForTheStablishment,JOCirculationMethod,PostFundingDirection</requiredFields>
+      <hiddenFields>HRChief</hiddenFields>
+      <!--<editableFields>DivisionDirector,SectionUnitChief,DivisionName,RequestType,RequestToCirculate,JobCode,Section,TJODuration,TJOCirculationMethod,TemporaryStartDate,TemporaryEndDate,PostIMISNumber,FunctionalTitle,CategoryGrade,JOCirculationMethod,JobDescription,OrgUnit,CurrentIncumbent,DivisionOrganizationalChart,ReasonForTheStablishment,StrategicOutputs,FundingProposal,SourceOfFunding,PostFundingDirection</editableFields>-->
+      <editableFields>DivisionDirector,SectionUnitChief,DivisionName,RequestType,RequestToCirculate,JobCode,Section,TJODuration,TJOCirculationMethod,TemporaryStartDate,TemporaryEndDate,PostIMISNumber,FunctionalTitle,CategoryGrade,JOCirculationMethod,JobDescription,OrgUnit,CurrentIncumbent,DivisionOrganizationalChart,ReasonForTheStablishment,StrategicOutputs,FundingProposal,SourceOfFunding,PostFundingDirection,Accounts,BudgetGradeLevel,DPPOChief,FinancialResources,StrategicDirection</editableFields>
+      <actions>
+        <action>
+          <name>CANCEL</name>
+          <displayName>Cancel Request</displayName>
+          <targetStatus>STA_CANCELLED</targetStatus>
+          <visible>true</visible>
+        </action>
+        <action>
+          <name>ACT_SEND_TO_SECTION_CHIEF</name>
+          <displayName>Send to Section Chief for Approval</displayName>
+          <targetStatus>STA_PENDING_CHIEF_SECTION</targetStatus>
+          <sendEmailNotification>MAIL_TO_SUPERVISOR</sendEmailNotification>
+          <requiredFields>SectionUnitChief,RequestToCirculate,TJODuration,TemporaryStartDate,TemporaryEndDate,TJOCirculationMethod</requiredFields>
+          <visible>true</visible>
+          <confirmationText>Send to Section Chief: field(SectionUnitChief)?</confirmationText>
+          <historyText>Sent to Section Chief: field(SectionUnitChief)</historyText>
+          <commentRequired>true</commentRequired>
+        </action>
+        <action>
+          <name>ACT_SEND_TO_DIVISION_DIRECTOR</name>
+          <displayName>Send to Division Director for Approval</displayName>
+          <targetStatus>STA_PENDING_DIRECTOR</targetStatus>
+          <visible>true</visible>
+        </action>
+      </actions>
+    </status>
+  </statuses>
+  <roles>
+    <role>
+      <id>ESReviewerApprover</id>
+      <name>ES Reviewer/Approver</name>
+      <users>Robinson Aravena</users>
+      <emails>robinson.aravena@asdasd.org</emails>
+    </role>
+    <role>
+      <id>DeputyESApprover</id>
+      <name>Deputy ES Approver</name>
+      <users>
+        <user>
+          <name>Robinson Aravena</name>
+          <email>robinson.aravena@asdasd.org</email>
+        </user>
+      </users>
+    </role>
+    <role>
+      <id>AlternateESAssistants</id>
+      <name>Alternate ES Assistants</name>
+      <users>
+        <user>
+          <name>Robinson Aravena</name>
+          <email>robinson.aravena@asdasd.org</email>
+        </user>
+      </users>
+    </role>
+    <role>
+      <id>HRAssistant</id>
+      <name>HR Assistants</name>
+      <users>
+        <user>
+          <name>Robinson Aravena</name>
+          <email>robinson.aravena@asdasd.org</email>
+        </user>
+      </users>
+    </role>
+    <role>
+      <id>AlternateHRAssistant</id>
+      <name>Alternate HR Assistants</name>
+      <users>
+        <user>
+          <name>Robinson Aravena</name>
+          <email>robinson.aravena@asdasd.org</email>
+        </user>
+      </users>
+    </role>
+    <role>
+      <id>HRChief</id>
+      <name>HR Chief</name>
+      <users>
+        <user>
+          <name>Robinson Aravena</name>
+          <email>robinson.aravena@asdasd.org</email>
+        </user>
+      </users>
+    </role>
+    <role>
+      <id>HROfficer</id>
+      <name>HR Officer</name>
+      <users>
+        <user>
+          <name>Robinson Aravena</name>
+          <email>robinson.aravena@asdasd.org</email>
+        </user>
+      </users>
+    </role>
+    <role>
+      <id>AlternateHROfficers</id>
+      <name>Alternate HR Officers</name>
+      <users>
+        <user>
+          <name>Robinson Aravena</name>
+          <email>robinson.aravena@asdasd.org</email>
+        </user>
+      </users>
+    </role>
+    <role>
+      <id>DPPOAdministrativeAssistant</id>
+      <name>DPPO Administrative Assistant</name>
+      <users>
+        <user>
+          <name>Robinson Aravena</name>
+          <email>robinson.aravena@asdasd.org</email>
+        </user>
+      </users>
+    </role>
+    <role>
+      <id>AlternateDPPOAdmnAsst</id>
+      <name>Alternate DPPO Admn. Asst.</name>
+      <users>
+        <user>
+          <name>Robinson Aravena</name>
+          <email>robinson.aravena@asdasd.org</email>
+        </user>
+      </users>
+    </role>
+    <role>
+      <id>CertifyingOfficer</id>
+      <name>Certifying Officer</name>
+      <users>
+        <user>
+          <name>Robinson Aravena</name>
+          <email>robinson.aravena@asdasd.org</email>
+        </user>
+      </users>
+    </role>
+    <role>
+      <id>AlternateCertifyingOfficers</id>
+      <name>Alternate Certifying Officers</name>
+      <users>
+        <user>
+          <name>Robinson Aravena</name>
+          <email>robinson.aravena@asdasd.org</email>
+        </user>
+      </users>
+    </role>
+    <role>
+      <id>DPPOUnitChiefs</id>
+      <name>DPPO Unit Chiefs</name>
+      <users>
+        <user>
+          <name>Robinson Aravena</name>
+          <email>robinson.aravena@asdasd.org</email>
+        </user>
+      </users>
+    </role>
+    <role>
+      <id>DPPOChief</id>
+      <name>DPPO Chief</name>
+      <usedForModalTable>true</usedForModalTable>
+      <title>Keywords</title>
+      <users>
+        <user>
+          <name>Robinson Aravena</name>
+          <email>robinson.aravena@asdasd.org</email>
+        </user>
+      </users>
+    </role>
+    <role>
+      <id>AlternateDPPOChiefs</id>
+      <name>Alternate DPPO Chiefs</name>
+      <users>
+        <user>
+          <name>Robinson Aravena</name>
+          <email>robinson.aravena@asdasd.org</email>
+        </user>
+      </users>
+    </role>
+    <role>
+      <id>OtherViewUsers</id>
+      <name>Other View Users</name>
+      <users>
+        <user>
+          <name>Robinson Aravena</name>
+          <email>robinson.aravena@asdasd.org</email>
+        </user>
+      </users>
+    </role>
+  </roles>
+  <emailNotificationTemplates>
+    <emailNotificationTemplate>
+      <templateId>MAIL_TO_SUPERVISOR</templateId>
+      <recipient>emailField(SectionUnitChief)</recipient>
+      <subject>Post Clearance Request : For your review field(Reference)</subject>
+      <body>
+        <![CDATA[
+        Dear field(SectionUnitChief)
+
+        Please review/approve the following clearance request:
+        IMIS Post Number : field(PostIMISNumber)
+        Grade            : field(CategoryGrade)
+        Division   : field(DivisionName)
+
+        Date       : DateTime()
+        Link       : Link()
+
+        Regards,
+        User()
+        ]]>
+      </body>
+    </emailNotificationTemplate>
+    <emailNotificationTemplate>
+      <templateId>MAIL_TO_REQUESTOR_FOR_REVISION</templateId>
+      <recipient>field(createdByEmail)</recipient>
+      <subject>Post Clearance Request : For revision field(Reference)</subject>
+      <body>
+        <![CDATA[
+        	Dear Requrestor(),
+
+          The following request has been sent back to you for revision. 
+
+
+          Comments         : Comments()
+
+          IMIS Post Number : field(PostIMISNumber)
+          Grade            : field(CategoryGrade)
+
+          Date         : DateTime()
+          Link         : Link()
+
+          Regards,
+
+          User()
+        ]]>
+      </body>
+    </emailNotificationTemplate>
+    <emailNotificationTemplate>
+      <templateId>MAIL_TO_SECTION_CHIEF</templateId>
+      <recipient>emailField(SectionUnitChief)</recipient>
+      <subject>Post Clearance Request : Sent back for Clarification (field(Reference))</subject>
+      <body>
+        <![CDATA[
+          Please note that the following clearance request has been sent back to for clarification:
+
+          Comments         : Comments()
+
+          IMIS Post Number : field(PostIMISNumber)
+          Grade            : field(CategoryGrade)
+
+          Date       : DateTime()
+          Link       : Link()
+
+          Regards,
+          User()
+        ]]>
+      </body>
+    </emailNotificationTemplate>
+  </emailNotificationTemplates>
+  <views>
+    <group>
+      <title>User()</title>
+      <view>
+        <viewId>1</viewId>
+        <name>Inbox</name>
+        <groupBy>status</groupBy>
+        <columns>
+          <column>
+            <name>Date Submitted</name>
+            <controlId>createdDate</controlId>
+          </column>
+          <column>
+            <name>Inbox Date</name>
+            <controlId>createdDate</controlId>
+          </column>
+          <column>
+            <name>IMIS Number</name>
+            <controlId>PostIMISNumber</controlId>
+          </column>
+          <column>
+            <name>Division</name>
+            <controlId>DivisionName</controlId>
+          </column>
+          <column>
+            <name>Section</name>
+            <controlId>Section</controlId>
+          </column>
+          <column>
+            <name>Functional Title</name>
+            <controlId>FunctionalTitle</controlId>
+          </column>
+          <column>
+            <name>Grade</name>
+            <controlId>CategoryGrade</controlId>
+          </column>
+          <column>
+            <name>Reference</name>
+            <controlId>Reference</controlId>
+          </column>
+        </columns>
+      </view>
+    </group>
+  </views>
+</body>
